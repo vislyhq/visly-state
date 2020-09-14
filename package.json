@@ -1,9 +1,12 @@
 {
     "name": "@visly/state",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "files": [
         "lib/**/*"
     ],
+    "exports": {
+        "./": "./lib/"
+    },
     "scripts": {
         "prepublish": "tsc",
         "format": "prettier --write \"**/*.{ts,tsx,js}\" --loglevel error",
