@@ -1,12 +1,12 @@
 {
     "name": "@visly/state",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "license": "MIT",
-    "files": [
-        "dist/**/*"
-    ],
+    "main": "dist/index.js",
+    "browser": "dist/browser.js",
+    "types": "dist/browser.d.ts",
     "scripts": {
-        "release": "tsc && cp package.json dist && cd dist && yarn pack --filename release.tgz && cd .. && yarn publish dist/release.tgz",
+        "prepublish": "tsc",
         "format": "prettier --write \"**/*.{ts,tsx,js}\" --loglevel error",
         "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
         "typecheck": "tsc --noEmit",
