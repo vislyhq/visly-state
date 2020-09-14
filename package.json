@@ -1,7 +1,14 @@
 {
-    "name": "visly-state",
-    "version": "1.0.0",
+    "name": "@visly/state",
+    "version": "1.0.1",
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "files": [
+        "dist/**/*.js",
+        "dist/**/*.d.ts"
+    ],
     "scripts": {
+        "prepublish": "tsc",
         "format": "prettier --write \"**/*.{ts,tsx,js}\" --loglevel error",
         "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
         "typecheck": "tsc --noEmit",
