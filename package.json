@@ -1,12 +1,12 @@
 {
     "name": "@visly/state",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "license": "MIT",
     "files": [
         "dist/**/*"
     ],
     "scripts": {
-        "release": "tsc && cp package.json dist && cd dist && yarn pack --filename release.tgz && yarn publish release.tgz -f",
+        "release": "tsc && cp package.json dist && cd dist && yarn pack --filename release.tgz && cd .. && yarn publish dist/release.tgz",
         "format": "prettier --write \"**/*.{ts,tsx,js}\" --loglevel error",
         "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
         "typecheck": "tsc --noEmit",
