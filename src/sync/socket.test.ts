@@ -8,7 +8,7 @@
 import { WSSyncAdapter } from './socket'
 import WebSocketServer from 'jest-websocket-mock'
 import { Patch } from 'immer'
-import { State } from '..'
+import { State } from '../core'
 import { SyncPayloadType } from '.'
 
 test('onPatch', async () => {

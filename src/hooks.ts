@@ -12,7 +12,7 @@ import {
     CombinedState,
     StateObject,
     identity,
-} from '.'
+} from './core'
 import {
     useCallback,
     useRef,

@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { state, derivedState, combinedState } from '.'
+import { state, derivedState, combinedState } from './core'
 import { useValue, useMutation } from './hooks'
 import { render, act } from '@testing-library/react'
 

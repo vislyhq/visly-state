@@ -11,7 +11,7 @@ import {
     syncedState,
     setSyncAdapter,
     combinedState,
-} from '.'
+} from './core'
 import { Patch } from 'immer'
 
 test('state.get()', () => {

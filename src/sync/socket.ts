@@ -6,7 +6,7 @@
  */
 
 import { Patch } from 'immer'
-import { SyncAdapter } from '..'
+import { SyncAdapter } from '../core'
 import { SyncPayloadType, SyncPayload } from '.'
 import ReconnectingWebSocket from 'reconnecting-websocket'
 
