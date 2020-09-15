@@ -35,10 +35,18 @@
   box-shadow: none;
 }
 
+.navbar__brand {
+  flex-grow: 1;
+}
+
 .navbar__link--active,
 .navbar__link:hover,
 .navbar__title:hover {
   color: #F48B68;
+}
+
+.navbar__brand:hover {
+  color: #FFFFFF;
 }
 
 .navbar__title, .navbar__link {
