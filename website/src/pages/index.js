@@ -7,7 +7,7 @@ import { tomorrow as theme } from 'react-syntax-highlighter/dist/cjs/styles/pris
 
 const features = [
   {
-    title: 'Synchronise data',
+    title: 'Synchronize data',
     summary: `Share data between multiple clients using websockets. 
       As soon as a change is made on one client it is shared with all other 
       clients instantly and efficiently.`,
