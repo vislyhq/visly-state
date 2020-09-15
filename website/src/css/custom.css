@@ -168,6 +168,7 @@ p {
   align-self: center;
   margin-top: 32px;
   color: #222222;
+  z-index: 100;
 }
 
 .github-button:hover, .blog-button:hover {
