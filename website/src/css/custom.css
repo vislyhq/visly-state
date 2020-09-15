@@ -35,12 +35,10 @@ title {
   font-family: 'Archivo Black', sans-serif;
 }
 
-.triangle-right {
-  width: 0;
-	height: 0;
-	border-top: 0px solid transparent;
-	border-left: 500px solid #333333;
-	border-bottom: 100px solid transparent;
+.triangle {
+  width: 100%;
+  position: absolute;
+  margin-top: -120px;
 }
 
 h1 {
@@ -63,6 +61,12 @@ p {
 .main-container {
   background-color: #333333;
   padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature {
+  z-index: 100;
 }
 
 .feature-summary {
@@ -103,4 +107,5 @@ p {
   font-weight: 600;
   padding: 10px 20px;
   font-size: 20px;
+  align-self: center;
 }

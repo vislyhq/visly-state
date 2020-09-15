@@ -26,59 +26,64 @@ const features = [
   },
   {
     title: 'Share logic',
-    summary: `Share data between multiple clients using websockets. 
-      As soon as a change is made on one client it is shared with all other 
-      clients instantly and efficiently.`,
+    summary: `Visly State is built to be used on both the server and client. 
+      This makes sharing business logic, data validation, and tests trivial.`,
     code: `
-      import { syncedState, useValue } from '@visly/state' 
-
-      const appState = syncedState({ cursors: [] }) 
-
-      function Cursors() { 
-        const cursors = useValue(appState, s => s.cursors) 
-        return cursors.map(c => ( 
-          <Cursor location={c.location} color={c.color} /> 
-        )) 
+      import { syncedState } from '@visly/state'
+      
+      export const appState = syncedState({ cursors: [] })
+      export const mutations = {
+        moveCursor: (state, id, location) => {
+          const cursor = state.cursors.find(c => c.id === id)
+          if (!cursor) return
+          cursor.location = location
+        }
       }
     `
   },
   {
     title: 'Time travel',
-    summary: `Share data between multiple clients using websockets. 
-      As soon as a change is made on one client it is shared with all other 
-      clients instantly and efficiently.`,
+    summary: `Being able to quickly undo & redo operations is a key feature
+      in any modern app. Visly State manages this for you simply and efficiently.`,
     code: `
-      import { syncedState, useValue } from '@visly/state' 
+      import { undo, redo, useMutation } from '@visly/state'
 
-      const appState = syncedState({ cursors: [] }) 
+      function Component() {
+        const increment = useMutation(appState, s => s.counter++)
 
-      function Cursors() { 
-        const cursors = useValue(appState, s => s.cursors) 
-        return cursors.map(c => ( 
-          <Cursor location={c.location} color={c.color} /> 
-        )) 
+        return [
+          <button onClick={increment}>Increment</button>
+          <button onClick={() => undo(appState)}>Undo</button>
+          <button onClick={() => redo(appState)}>Redo</button>
+        ]
       }
     `
   },
   {
     title: 'Improve performance',
-    summary: `Share data between multiple clients using websockets. 
-      As soon as a change is made on one client it is shared with all other 
-      clients instantly and efficiently.`,
+    summary: `React performance is all about minimizing renders.
+      Visly State keeps track of which components use what data and only
+      re-renders the components it needs.`,
     code: `
-      import { syncedState, useValue } from '@visly/state' 
+      import { useValue } from '@visly/state'
 
-      const appState = syncedState({ cursors: [] }) 
+      function Cursor(props) {
+        // Only re-render when this specific cursor has a new value,
+        // not when any cursor moves const cursor = useValue(appState, s => {
+          return s.cursors.find(c => c.id === props.id)
+        })
 
-      function Cursors() { 
-        const cursors = useValue(appState, s => s.cursors) 
-        return cursors.map(c => ( 
-          <Cursor location={c.location} color={c.color} /> 
-        )) 
+        return <Pointer position={cursor.location} />
       }
     `
   },
 ];
+
+function GithubButton() {
+  return <a class="github-link" href="https://github.com/vislyhq/visly-state">
+    View on Github
+    </a>
+}
 
 function Feature({title, summary, code}) {
   return (
@@ -126,12 +131,10 @@ function Home() {
         <div className="hero-container">
           <title>{title.toUpperCase()}</title>
           <p>A React state management library that extends to your server.</p>
-          <a class="github-link" href="https://github.com/vislyhq/visly-state">
-            View on Github
-          </a>
+          <GithubButton/>
         </div>
       </header>
-      <div className='triangle-right'></div>
+      <img className='triangle' src={'../../static/img/triangle.svg'}></img>
       <section className='main-container'>
         {features.map(feature =>
           <Feature title={feature.title}
@@ -139,6 +142,7 @@ function Home() {
             code={feature.code}
           ></Feature>
         )}
+        <GithubButton/>
       </section>
     </Layout>
   );
