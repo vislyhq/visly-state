@@ -80,7 +80,7 @@ const features = [
 ];
 
 function GithubButton() {
-  return <a class="github-link" href="https://github.com/vislyhq/visly-state">
+  return <a class="button github-button" href="https://github.com/vislyhq/visly-state">
     View on Github
     </a>
 }
@@ -133,7 +133,7 @@ function Home() {
           <p>A React state management library that extends to your server.</p>
           <GithubButton/>
         </div>
-        <img className='triangle' src={'../../static/img/triangle.svg'}/>
+        <img className='triangle' src={'/img/triangle.svg'}/>
       </header>
       <section className='main-container'>
         {features.map(feature =>
@@ -143,7 +143,7 @@ function Home() {
           ></Feature>
         )}
         <GithubButton/>
-        <img className='triangle' src={'../../static/img/triangle.svg'}/>
+        <img className='triangle' src={'/img/triangle.svg'}/>
       </section>
     </Layout>
   );

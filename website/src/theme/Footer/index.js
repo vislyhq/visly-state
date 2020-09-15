@@ -8,7 +8,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 function BlogButton() {
-  return <a class="blog-link" href="https://visly.app/blog">
+  return <a class="button blog-button" href="https://visly.app/blog">
     Read our blog
     </a>
 }
