@@ -108,6 +108,7 @@ function Code({code}) {
 
   return (
     <div className='code-container'>
+      <img className='gradient-box' src={'/img/gradient1.svg'}/>
       <div className='code' padding={['bottom']}>
             <SyntaxHighlighter
                   language='jsx'
