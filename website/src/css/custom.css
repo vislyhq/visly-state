@@ -65,8 +65,8 @@ p {
 }
 
 .main-container {
-  background-color: #333333;
-  padding: 0;
+  background-image: linear-gradient(#333333, #222222);
+  padding-top: 0;
   display: flex;
   flex-direction: column;
 }
