@@ -1,0 +1,106 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #222222;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-background-color: #222222;
+  --ifm-navbar-link-color: #FFFFFF;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+title {
+  display: block;
+  font-size: 50px;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.triangle-right {
+  width: 0;
+	height: 0;
+	border-top: 0px solid transparent;
+	border-left: 500px solid #333333;
+	border-bottom: 100px solid transparent;
+}
+
+h1 {
+  color: #FFFFFF;
+  font-size: 30px;
+  font-family: 'Archivo', sans-serif;
+}
+
+p {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-container {
+  width: 60%;
+  margin: auto;
+}
+
+.main-container {
+  background-color: #333333;
+  padding: 40px 0;
+}
+
+.feature-summary {
+  margin: auto;
+  text-align: center;
+  max-width: 540px;
+  width: 40%;
+}
+
+.feature-summary-h1 {
+  text-align: center;
+}
+
+.feature-summary-p {
+  text-align: center;
+}
+
+.code-container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 120px;
+  margin-top: 48px;
+  padding: 60px 92px;
+  background: conic-gradient(from 223.65deg at 50% 50%, #F38065 0deg, #F4DE6B 73.13deg, #E13CC7 153.75deg, #F25C5C 225deg, #FFBF42 292.5deg, #E648B9 360deg);
+  /* filter: blur(60px); */
+  border-radius: 32px;
+}
+
+.code {
+  border-radius: 20px;
+}
+
+.github-link {
+  background-color: #F48B68;
+  border-radius: 99px;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 20px;
+}
