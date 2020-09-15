@@ -52,6 +52,7 @@ title {
   font-family: 'Archivo Black', sans-serif;
   line-height: 80px;
   margin-bottom: 40px;
+  max-width: 1080px;
 }
 
 header {

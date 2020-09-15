@@ -123,7 +123,7 @@ function Code({code}) {
 }
 
 function Home() {
-  const title = 'React state for real time apps';
+  const title = 'React state for real-time apps';
   return (
     <Layout
       title='Visly State'>
