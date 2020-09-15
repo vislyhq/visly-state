@@ -35,12 +35,15 @@ title {
   font-family: 'Archivo Black', sans-serif;
 }
 
-.triangle-right {
-  width: 0;
-	height: 0;
-	border-top: 0px solid transparent;
-	border-left: 500px solid #333333;
-	border-bottom: 100px solid transparent;
+header {
+  margin-bottom: 0;
+  padding-bottom: 0 !important;
+}
+
+.triangle {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 h1 {
@@ -58,11 +61,20 @@ p {
 .hero-container {
   width: 60%;
   margin: auto;
+  padding-bottom: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-container {
-  background-color: #333333;
-  padding: 40px 0;
+  background-image: linear-gradient(#333333, #222222);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature {
+  z-index: 100;
 }
 
 .feature-summary {
@@ -88,12 +100,15 @@ p {
   margin-top: 48px;
   padding: 60px 92px;
   background: conic-gradient(from 223.65deg at 50% 50%, #F38065 0deg, #F4DE6B 73.13deg, #E13CC7 153.75deg, #F25C5C 225deg, #FFBF42 292.5deg, #E648B9 360deg);
-  /* filter: blur(60px); */
   border-radius: 32px;
 }
 
 .code {
   border-radius: 20px;
+}
+
+.main-container > .triangle {
+  position: relative;
 }
 
 .github-link {
@@ -103,4 +118,29 @@ p {
   font-weight: 600;
   padding: 10px 20px;
   font-size: 20px;
+  align-self: center;
+  margin-top: 32px;
+}
+
+.footer {
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  width: 580px;
+  margin: auto;
+  text-align: center;
+}
+
+.blog-link {
+  background-color: #75EDB3;
+  border-radius: 99px;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 20px;
+  align-self: center;
+  margin-top: 32px;
 }

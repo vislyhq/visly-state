@@ -111,7 +111,7 @@ dist
 .cache-loader
 
 #OS
-.DS_STORE
+.DS_Store
 
 # Misc
 .env.local
