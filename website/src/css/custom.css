@@ -32,6 +32,7 @@
 .navbar {
   padding: 20px 40px;
   height: 80px;
+  box-shadow: none;
 }
 
 .navbar__link--active,
@@ -62,6 +63,7 @@ header {
   width: 100%;
   position: absolute;
   bottom: 0;
+  margin-bottom: -1px;
 }
 
 h1 {
@@ -134,15 +136,8 @@ p {
   position: relative;
 }
 
-.github-link {
+.github-button {
   background-color: #F48B68;
-  border-radius: 99px;
-  border: none;
-  font-weight: 600;
-  padding: 10px 20px;
-  font-size: 20px;
-  align-self: center;
-  margin-top: 32px;
 }
 
 .footer {
@@ -150,6 +145,7 @@ p {
   display: flex;
   flex-direction: column;
   padding-top: 0;
+  padding-bottom: 80px;
 }
 
 .footer-content {
@@ -158,8 +154,11 @@ p {
   text-align: center;
 }
 
-.blog-link {
+.blog-button {
   background-color: #75EDB3;
+}
+
+.button {
   border-radius: 99px;
   border: none;
   font-weight: 600;
@@ -167,4 +166,10 @@ p {
   font-size: 20px;
   align-self: center;
   margin-top: 32px;
+  color: #222222;
+}
+
+.github-button:hover, .blog-button:hover {
+  text-decoration: none;
+  color: #FFFFFF;
 }

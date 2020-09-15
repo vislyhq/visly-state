@@ -80,7 +80,7 @@ const features = [
 ];
 
 function GithubButton() {
-  return <a class="github-link" href="https://github.com/vislyhq/visly-state">
+  return <a class="button github-button" href="https://github.com/vislyhq/visly-state">
     View on Github
     </a>
 }
