@@ -29,10 +29,28 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
+.navbar {
+  padding: 20px 40px;
+  height: 80px;
+}
+
+.navbar__link--active,
+.navbar__link:hover,
+.navbar__title:hover {
+  color: #F48B68;
+}
+
+.navbar__title, .navbar__link {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 title {
   display: block;
-  font-size: 50px;
+  font-size: 80px;
   font-family: 'Archivo Black', sans-serif;
+  line-height: 80px;
+  margin-bottom: 40px;
 }
 
 header {
@@ -56,6 +74,11 @@ p {
   color: #FFFFFF;
   font-size: 20px;
   font-family: 'Inter', sans-serif;
+  align-self: center;
+}
+
+.hero-container > p {
+  width: 400px;
 }
 
 .hero-container {
@@ -126,6 +149,7 @@ p {
   background-color: #333333;
   display: flex;
   flex-direction: column;
+  padding-top: 0;
 }
 
 .footer-content {

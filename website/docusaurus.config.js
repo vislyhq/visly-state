@@ -12,9 +12,9 @@ module.exports = {
       disableSwitch: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Visly State',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Visly State Logo',
         src: 'img/logo.svg',
       },
       items: [
