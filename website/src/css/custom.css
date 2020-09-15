@@ -35,10 +35,15 @@ title {
   font-family: 'Archivo Black', sans-serif;
 }
 
+header {
+  margin-bottom: 0;
+  padding-bottom: 0 !important;
+}
+
 .triangle {
   width: 100%;
   position: absolute;
-  margin-top: -120px;
+  bottom: 0;
 }
 
 h1 {
@@ -56,11 +61,12 @@ p {
 .hero-container {
   width: 60%;
   margin: auto;
+  padding-bottom: 200px;
 }
 
 .main-container {
   background-color: #333333;
-  padding: 40px 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }

@@ -133,8 +133,8 @@ function Home() {
           <p>A React state management library that extends to your server.</p>
           <GithubButton/>
         </div>
+        <img className='triangle' src={'../../static/img/triangle.svg'}></img>
       </header>
-      <img className='triangle' src={'../../static/img/triangle.svg'}></img>
       <section className='main-container'>
         {features.map(feature =>
           <Feature title={feature.title}
