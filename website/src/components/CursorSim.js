@@ -23,11 +23,10 @@ function CursorSim() {
   useEffect ( () => {
     if (parentRef.current) {
       setDim({ h: parentRef.current.offsetHeight, w: parentRef.current.offsetWidth });
-      // console.log('w, h', parentRef.current.offsetHeight, parentRef.current.offsetWidth);
     }
   }, [parentRef]);
 
-  const [cursors, setCursors] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(getNewProps))
+  const [cursors, setCursors] = useState(icons.map(getNewProps))
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,7 +54,7 @@ function CursorSim() {
       {cursors.map((c, i) => (
         <Cursor
           key={i}
-          icon={icons[i % icons.length]}
+          icon={icons[i]}
           {...dim}
           {...c}
         />
