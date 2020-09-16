@@ -98,7 +98,6 @@ header {
 }
 
 h1 {
-  color: #FFFFFF;
   font-size: 30px;
   font-family: 'Archivo', sans-serif;
 }
@@ -120,6 +119,10 @@ p {
     width: 400px;
     color: white;
   }
+
+  h1 {
+    color: white;
+  }
 }
 
 .main-container {
@@ -128,7 +131,7 @@ p {
   display: flex;
   flex-direction: column;
 
-  p {
+  p, h1 {
     color: white;
   }
 }
@@ -226,6 +229,7 @@ p {
 
 .github-button {
   background-color: #F48B68;
+  color: black;
 }
 
 .footer {

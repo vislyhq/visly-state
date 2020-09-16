@@ -30,13 +30,13 @@ function Code({code, background}) {
     <div className='code-container'>
       <img className='gradient-box' src={`/img/${background}`}/>
       <div className='code'>
-            <SyntaxHighlighter
-                  language='jsx'
-                  style={theme}
-                  customStyle={style}
-            >
-                {code}
-            </SyntaxHighlighter>
+        <SyntaxHighlighter
+          language='jsx'
+          style={theme}
+          customStyle={style}
+        >
+          {code}
+        </SyntaxHighlighter>
       </div>
     </div>
   );
