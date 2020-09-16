@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 const features = [
     {
         title: 'Synchronize data',
-        summary: `Share data between multiple clients using websockets. 
+        summary: `Share state between multiple clients. 
       As soon as a change is made on one client it is shared with all other 
       clients instantly and efficiently.`,
         icon: 'refresh',
