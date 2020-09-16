@@ -41,7 +41,6 @@ function Code({code, background}) {
 }
 
 function Feature({title, summary, code, icon, leftAccessory, rightAccessory}) {
-
   const [selected, setSelected] = useState(0);
   const backgrounds = [
     'gradient1.svg', 'gradient2.svg', 'gradient3.svg', 'gradient4.svg'
