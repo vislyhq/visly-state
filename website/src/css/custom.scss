@@ -95,6 +95,12 @@
 .navbar {
   z-index: 1000;
 
+  .navbar__logo {
+    width: 34px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
   @media only screen and (max-width: 959px) {
     .navbar__title {
       display: none;
@@ -103,11 +109,6 @@
     .navbar__brand {
       flex-grow: 0;
       margin-right: 0;
-    }
-
-    .navbar__logo {
-      width: 34px;
-      height: 24px;
     }
 
     .navbar__items {
