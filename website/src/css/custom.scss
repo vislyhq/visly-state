@@ -39,6 +39,28 @@
   flex-grow: 1;
 }
 
+.navbar__items:last-of-type {
+
+  .navbar__item {
+    display: flex;
+
+    &::after {
+      content: '';
+      background: url('/img/arrowRight.svg') no-repeat;
+      width: 16px;
+      height: 16px;
+      align-self: center;
+      margin-left: 6px;
+    }
+
+    &:hover {
+      &::after {
+        background: url('/img/arrowRight-hover.svg') no-repeat;
+      }
+    }
+  }
+}
+
 .navbar__link--active,
 .navbar__link:hover,
 .navbar__title:hover {
