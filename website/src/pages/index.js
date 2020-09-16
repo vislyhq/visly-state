@@ -68,7 +68,8 @@ const features = [
 
       function Cursor(props) {
         // Only re-render when this specific cursor has a new value,
-        // not when any cursor moves const cursor = useValue(appState, s => {
+        // not when any cursor moves
+        const cursor = useValue(appState, s => {
           return s.cursors.find(c => c.id === props.id)
         })
 
@@ -79,7 +80,7 @@ const features = [
 ];
 
 function GithubButton() {
-  return <a class="button github-button" href="https://github.com/vislyhq/visly-state">
+  return <a className="button github-button" href="https://github.com/vislyhq/visly-state">
     View on Github
     </a>
 }
@@ -98,8 +99,10 @@ function Home() {
         <img className='triangle' src={'/img/triangle.svg'}/>
       </header>
       <section className='main-container'>
-        {features.map(feature =>
-          <Feature title={feature.title}
+        {features.map((feature, index) =>
+          <Feature
+            key={index}
+            title={feature.title}
             summary={feature.summary}
             code={feature.code}
           ></Feature>

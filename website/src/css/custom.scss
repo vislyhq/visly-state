@@ -82,15 +82,9 @@ h1 {
 }
 
 p {
-  color: #FFFFFF;
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   align-self: center;
-}
-
-
-.hero-container > p {
-  width: 400px;
 }
 
 .hero-container {
@@ -99,6 +93,11 @@ p {
   padding-bottom: 200px;
   display: flex;
   flex-direction: column;
+
+  p {
+    width: 400px;
+    color: white;
+  }
 }
 
 .main-container {
@@ -106,6 +105,10 @@ p {
   padding-top: 0;
   display: flex;
   flex-direction: column;
+
+  p {
+    color: white;
+  }
 }
 
 .feature {
@@ -217,6 +220,7 @@ p {
   width: 580px;
   margin: auto;
   text-align: center;
+  color: white;
 }
 
 .blog-button {
