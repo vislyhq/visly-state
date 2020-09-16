@@ -94,6 +94,7 @@
     padding-bottom: 140px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
 
     @media only screen and (max-width: 959px) {
@@ -365,8 +366,6 @@ p {
 
 .cursor-sim {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 75%;
 }
