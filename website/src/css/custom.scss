@@ -46,6 +46,7 @@
 .navbar__items:last-of-type {
   .navbar__item {
     display: flex;
+    margin-left: 80px;
 
     &::after {
       content: '';
