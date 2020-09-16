@@ -8,6 +8,9 @@ module.exports = {
   organizationName: 'Visly',
   projectName: 'visly-state',
   themeConfig: {
+    prism: {
+      theme: require('prism-react-renderer/themes/nightOwl'),
+    },
     colorMode: {
       disableSwitch: true,
     },
