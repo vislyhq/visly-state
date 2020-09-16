@@ -273,8 +273,8 @@ p {
       background: url('/img/ellipse-hover.svg');
     }
 
-    .selected,
-    .selected:hover {
+    &.selected,
+    &.selected:hover {
       background: url('/img/ellipse-selected.svg');
     }
   }
