@@ -10,80 +10,80 @@
 
 /* You can override the default Infima variables here. */
 :root {
-    --ifm-color-primary: #222222;
-    --ifm-color-primary-dark: rgb(33, 175, 144);
-    --ifm-color-primary-darker: rgb(31, 165, 136);
-    --ifm-color-primary-darkest: rgb(26, 136, 112);
-    --ifm-color-primary-light: rgb(70, 203, 174);
-    --ifm-color-primary-lighter: rgb(102, 212, 189);
-    --ifm-color-primary-lightest: rgb(146, 224, 208);
-    --ifm-code-font-size: 95%;
-    --ifm-navbar-background-color: #222222;
-    --ifm-toc-border-color: #333;
-    --ifm-navbar-link-color: #ffffff;
-    --ifm-pagination-nav-color-hover: #999;
-    --ifm-code-background: black;
-    --ifm-code-color: white;
+  --ifm-color-primary: #222222;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-background-color: #222222;
+  --ifm-toc-border-color: #333;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-pagination-nav-color-hover: #999;
+  --ifm-code-background: black;
+  --ifm-code-color: white;
 }
 
 .docusaurus-highlight-code-line {
-    background-color: rgb(72, 77, 91);
-    display: block;
-    margin: 0 calc(-1 * var(--ifm-pre-padding));
-    padding: 0 var(--ifm-pre-padding);
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
 }
 
 .navbar {
-    padding: 20px 40px;
-    height: 80px;
-    box-shadow: none;
+  padding: 20px 40px;
+  height: 80px;
+  box-shadow: none;
 }
 
 .navbar__brand {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .navbar__items:last-of-type {
-    .navbar__item {
-        display: flex;
+  .navbar__item {
+    display: flex;
 
-        &::after {
-            content: '';
-            background: url('/img/arrowRight.svg') no-repeat;
-            width: 16px;
-            height: 16px;
-            align-self: center;
-            margin-left: 6px;
-        }
-
-        &:hover {
-            &::after {
-                background: url('/img/arrowRight-hover.svg') no-repeat;
-            }
-        }
+    &::after {
+      content: '';
+      background: url('/img/arrowRight.svg') no-repeat;
+      width: 16px;
+      height: 16px;
+      align-self: center;
+      margin-left: 6px;
     }
+
+    &:hover {
+      &::after {
+        background: url('/img/arrowRight-hover.svg') no-repeat;
+      }
+    }
+  }
 }
 
 .navbar__link--active,
 .navbar__link:hover,
 .navbar__title:hover {
-    color: #f48b68;
+  color: #f48b68;
 }
 
 .navbar__brand:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar__title,
 .navbar__link {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .hero {
   padding-top: 120px;
 
-  @media only screen and (max-width: 959px){
+  @media only screen and (max-width: 959px) {
     padding-left: 0;
     padding-top: 32px;
   }
@@ -132,17 +132,17 @@
 }
 
 .triangle {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: -1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -1px;
 }
 
 h1 {
   font-size: 30px;
   font-family: 'Archivo', sans-serif;
 
-  @media only screen and (max-width: 959px){
+  @media only screen and (max-width: 959px) {
     font-size: 24px;
   }
 }
@@ -152,7 +152,7 @@ p {
   font-family: 'Inter', sans-serif;
   align-self: center;
 
-  @media only screen and (max-width: 959px){
+  @media only screen and (max-width: 959px) {
     font-size: 18px;
   }
 }
@@ -192,7 +192,7 @@ p {
 }
 
 .feature:last-of-type {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .feature-summary {
@@ -201,18 +201,18 @@ p {
   max-width: 540px;
   width: 40%;
 
-  @media only screen and (max-width: 959px){
+  @media only screen and (max-width: 959px) {
     width: 100%;
     text-align: left;
   }
 }
 
 .feature-summary-h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .feature-summary-p {
-    text-align: center;
+  text-align: center;
 }
 
 .background-select-container {
@@ -231,28 +231,19 @@ p {
 
   .code-container {
     display: flex;
-    width: 820px;
+    align-items: center;
+    justify-content: center;
+    width: 720px;
     height: 460px;
-    margin-top: 20px;
-    justify-content: space-evenly;
-    position: relative;
+    position: absolute;
 
-    .code-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 720px;
-      height: 460px;
+    .gradient-box {
+      width: 100%;
+      height: 100%;
       position: absolute;
-
-      .gradient-box {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 32px;
-      }
+      top: 0;
+      left: 0;
+      border-radius: 32px;
     }
   }
 }
@@ -290,18 +281,18 @@ p {
 }
 
 .code {
-    border-radius: 20px;
-    width: 70%;
-    z-index: 3;
+  border-radius: 20px;
+  width: 70%;
+  z-index: 3;
 }
 
 .main-container > .triangle {
-    position: relative;
+  position: relative;
 }
 
 .github-button {
-    background-color: #f48b68;
-    color: black;
+  background-color: #f48b68;
+  color: black;
 }
 
 .footer {
@@ -329,9 +320,9 @@ p {
 
   }
 
-    p {
-        color: #dadcde;
-    }
+  p {
+    color: #dadcde;
+  }
 }
 
 .button {
@@ -352,24 +343,24 @@ p {
 
 .github-button:hover,
 .blog-button:hover {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .feature-left-accessory {
-    position: absolute;
-    left: -200px;
-    top: -100px;
+  position: absolute;
+  left: -200px;
+  top: -100px;
 }
 
 .feature-right-accessory {
-    position: absolute;
-    right: -150px;
-    bottom: -150px;
+  position: absolute;
+  right: -150px;
+  bottom: -150px;
 }
 
 .feature-icon {
-    padding-bottom: 0.7em;
+  padding-bottom: 0.7em;
 }
 
 .cursor-sim {
@@ -389,46 +380,46 @@ p {
 }
 
 .main-wrapper {
-    background: var(--ifm-navbar-background-color);
+  background: var(--ifm-navbar-background-color);
+  color: white;
+
+  h1 {
     color: white;
+  }
 
-    h1 {
-        color: white;
-    }
+  p {
+    color: #dadcde;
+  }
 
-    p {
-        color: #dadcde;
-    }
-
-    .menu__list-item {
-        a {
-            color: #dadcde;
-        }
-
-        :hover {
-            background: #444;
-        }
-
-        :active {
-            background: #333;
-        }
-    }
-
-    .menu__link--active.active {
-        background: #333;
-    }
-
+  .menu__list-item {
     a {
-        color: #dadcde;
+      color: #dadcde;
     }
+
+    :hover {
+      background: #444;
+    }
+
+    :active {
+      background: #333;
+    }
+  }
+
+  .menu__link--active.active {
+    background: #333;
+  }
+
+  a {
+    color: #dadcde;
+  }
 }
 
 .table-of-contents__link {
-    color: #dadcde;
+  color: #dadcde;
 
-    &:hover {
-        color: white;
-    }
+  &:hover {
+    color: white;
+  }
 }
 
 .markdown {
