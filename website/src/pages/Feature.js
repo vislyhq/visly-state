@@ -40,7 +40,7 @@ function Code({code, background}) {
   );
 }
 
-function Feature({title, summary, code, leftAccessory, rightAccessory}) {
+function Feature({title, summary, code, icon, leftAccessory, rightAccessory}) {
 
   const [selected, setSelected] = useState(0);
   const backgrounds = [
@@ -50,6 +50,7 @@ function Feature({title, summary, code, leftAccessory, rightAccessory}) {
   return (
     <div className='feature'>
       <div className='feature-summary'>
+        <img className='feature-icon' src={`/img/${icon}.svg`} />
         <h1 className='feature-summary-h1'>{title}</h1>
         <p className='feature-summary-p'>{summary}</p>
       </div>
@@ -63,12 +64,12 @@ function Feature({title, summary, code, leftAccessory, rightAccessory}) {
           background={backgrounds[selected]}/>
         {leftAccessory && (
           <div className='feature-left-accessory'>
-            {leftAccessory}
+            <img src={`/img/${leftAccessory}.svg`} />
           </div>
         )}
         {rightAccessory && (
           <div className='feature-right-accessory'>
-            {rightAccessory}
+            <img src={`/img/${rightAccessory}.svg`} />
           </div>
         )}
       </div>

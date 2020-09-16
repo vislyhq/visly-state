@@ -10,6 +10,7 @@ const features = [
     summary: `Share data between multiple clients using websockets. 
       As soon as a change is made on one client it is shared with all other 
       clients instantly and efficiently.`,
+    icon: 'refresh',
     code: `
   import { syncedState, useValue } from '@visly/state' 
 
@@ -22,13 +23,14 @@ const features = [
     )) 
   }
     `,
-    leftAccessory: <img className='accessory' src={`/img/sync_left.svg`}/>,
-    rightAccessory: <img className='accessory' src={`/img/sync_right.svg`}/>
+    leftAccessory: 'sync_left',
+    rightAccessory: 'sync_right'
   },
   {
     title: 'Share logic',
     summary: `Visly State is built to be used on both the server and client. 
       This makes sharing business logic, data validation, and tests trivial.`,
+    icon: 'share',
     code: `
   import { syncedState } from '@visly/state'
   
@@ -46,6 +48,7 @@ const features = [
     title: 'Time travel',
     summary: `Being able to quickly undo & redo operations is a key feature
       in any modern app. Visly State manages this for you simply and efficiently.`,
+    icon: 'watch',
     code: `
   import { undo, redo, useMutation } from '@visly/state'
 
@@ -59,14 +62,15 @@ const features = [
     ]
   }
     `,
-    leftAccessory: <img className='accessory' src={`/img/time_left.svg`}/>,
-    rightAccessory: <img className='accessory' src={`/img/time_right.svg`}/>
+    leftAccessory: 'time_left',
+    rightAccessory: 'time_right'
   },
   {
     title: 'Improve performance',
     summary: `React performance is all about minimizing renders.
       Visly State keeps track of which components use what data and only
       re-renders the components it needs.`,
+    icon: 'zap',
     code: `
       import { useValue } from '@visly/state'
     
