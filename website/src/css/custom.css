@@ -133,10 +133,40 @@ p {
   text-align: center;
 }
 
-.code-container {
-  width: 80%;
-  max-width: 900px;
+.background-select-container {
+  display: flex;
   align-self: center;
+}
+
+.background-select {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 128px;
+}
+
+.select-circle {
+  background: url('/img/ellipse.svg');
+}
+
+.select-circle:hover {
+  background: url('/img/ellipse-hover.svg');
+}
+
+.selected {
+  background: url('/img/ellipse-selected.svg');
+}
+
+.select-circle, .select-circle:hover {
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.code-container {
+  max-width: 900px;
   position: relative;
   height: 440px;
   margin-top: 20px;

@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import Feature from './Feature';
 
 const features = [
   {
@@ -83,44 +82,6 @@ function GithubButton() {
   return <a class="button github-button" href="https://github.com/vislyhq/visly-state">
     View on Github
     </a>
-}
-
-function Feature({title, summary, code}) {
-  return (
-    <div className='feature'>
-      <div className='feature-summary'>
-        <h1 className='feature-summary-h1'>{title}</h1>
-        <p className='feature-summary-p'>{summary}</p>
-      </div>
-      <Code code={code}/>
-    </div>
-
-  )
-}
-
-function Code({code}) {
-  const style = {
-    borderRadius: 8,
-    padding: 10,
-    marginLeft: -20,
-    marginRight: -20,
-  }
-
-  return (
-    <div className='code-container'>
-      <img className='gradient-box' src={'/img/gradient1.svg'}/>
-      <div className='code' padding={['bottom']}>
-            <SyntaxHighlighter
-                  language='jsx'
-                  style={theme}
-                  customStyle={style}
-            >
-                {code}
-            </SyntaxHighlighter>
-      </div>
-    </div>
-    
-  );
 }
 
 function Home() {
