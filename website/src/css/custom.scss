@@ -76,18 +76,30 @@
   font-weight: bold;
 }
 
-title {
-  display: block;
-  font-size: 80px;
-  font-family: 'Archivo Black', sans-serif;
-  line-height: 80px;
-  margin-bottom: 40px;
-  max-width: 1080px;
-}
+.hero {
+  padding-top: 120px;
 
-header {
-  margin-bottom: 0;
-  padding-bottom: 0 !important;
+  .hero-container {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+
+    title {
+      display: block;
+      font-size: 80px;
+      font-family: 'Archivo Black', sans-serif;
+      line-height: 80px;
+      margin-bottom: 40px;
+      max-width: 1080px;
+    }
+
+    p {
+      width: 400px;
+      color: white;
+    }
+  }
 }
 
 .triangle {
@@ -106,23 +118,6 @@ p {
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   align-self: center;
-}
-
-.hero-container {
-  width: 60%;
-  margin: auto;
-  padding-bottom: 200px;
-  display: flex;
-  flex-direction: column;
-
-  p {
-    width: 400px;
-    color: white;
-  }
-
-  h1 {
-    color: white;
-  }
 }
 
 .main-container {
@@ -237,18 +232,19 @@ p {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  padding-bottom: 40px;
-}
+  padding-bottom: 132px;
 
-.footer-content {
-  width: 580px;
-  margin: auto;
-  text-align: center;
-  color: white;
-}
+  .footer-content {
+    width: 580px;
+    margin: auto;
+    text-align: center;
+    color: white;
+  }
 
-.blog-button {
-  background-color: #75EDB3;
+  .blog-button {
+    background-color: #75EDB3;
+    margin-top: 20px;
+  }
 }
 
 .button {
@@ -258,7 +254,7 @@ p {
   padding: 10px 20px;
   font-size: 20px;
   align-self: center;
-  margin-top: 32px;
+  margin-top: 40px;
   color: #222222;
   z-index: 100;
 }

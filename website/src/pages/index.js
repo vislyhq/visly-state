@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 import Feature from '../components/Feature'
+import Footer from '../components/Footer'
 
 const features = [
     {
@@ -119,6 +120,7 @@ function Home() {
                 <GithubButton />
                 <img className="triangle" src={'/img/triangle.svg'} />
             </section>
+            <Footer/>
         </Layout>
     )
 }
