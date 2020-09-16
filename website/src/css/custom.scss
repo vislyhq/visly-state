@@ -244,10 +244,9 @@ p {
     position: absolute;
 
     @media only screen and (max-width: 959px) {
-      margin-left: -72px;
       height: 380px;
+      justify-content: left;
     }
-
 
     .gradient-box {
       width: 100%;
@@ -302,7 +301,7 @@ p {
   z-index: 3;
 
   @media only screen and (max-width: 959px) {
-    margin-left: 280px;
+    margin-left: 232px;
   }
 }
 
