@@ -68,6 +68,7 @@
   padding: 12px 12px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   .navbar-sidebar__items {
     flex-grow: 1;
@@ -216,7 +217,7 @@
   width: 100%;
   position: absolute;
   bottom: 0;
-  margin-bottom: -1px;
+  margin-bottom: -2px;
 }
 
 h1 {
