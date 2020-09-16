@@ -334,8 +334,9 @@ p {
   font-size: 20px;
   align-self: center;
   margin-top: 40px;
-  color: #222222;
   z-index: 100;
+
+  color: #222222 !important;
 
   @media only screen and (max-width: 959px) {
     align-self: flex-start;
