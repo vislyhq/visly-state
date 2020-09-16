@@ -37,6 +37,7 @@ const features = [
   import { syncedState } from '@visly/state'
   
   export const appState = syncedState({ cursors: [] })
+
   export const mutations = {
     moveCursor: (state, id, location) => {
       const cursor = state.cursors.find(c => c.id === id)
@@ -56,6 +57,7 @@ const features = [
 
   function Component() {
     const increment = useMutation(appState, s => s.count++)
+    
     return [
       <button onClick={increment}>Increment</button>,
       <button onClick={() => undo(appState)}>Undo</button>,
