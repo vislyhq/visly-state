@@ -52,8 +52,8 @@ function Feature({title, summary, code, icon, leftAccessory, rightAccessory}) {
     <div className='feature'>
       <div className='feature-summary'>
         <img className='feature-icon' src={`/img/${icon}.svg`} />
-        <h1 className='feature-summary-h1'>{title}</h1>
-        <p className='feature-summary-p'>{summary}</p>
+        <h1>{title}</h1>
+        <p>{summary}</p>
       </div>
       <div className='background-select-container'>
         <BackgroundSelect

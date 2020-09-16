@@ -81,28 +81,51 @@
 }
 
 .hero {
-    padding-top: 120px;
+  padding-top: 120px;
 
-    .hero-container {
-        width: 60%;
-        margin: auto;
-        padding-bottom: 140px;
-        display: flex;
-        flex-direction: column;
+  @media only screen and (max-width: 959px){
+    padding-left: 0;
+    padding-top: 32px;
+  }
 
-        title {
-            display: block;
-            font-size: 80px;
-            font-family: 'Archivo Black', sans-serif;
-            line-height: 80px;
-            margin-bottom: 40px;
-            max-width: 1080px;
-        }
+  .hero-container {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
 
-        p {
-            width: 400px;
-            color: white;
-        }
+    @media only screen and (max-width: 959px){
+      width: 100%;
+      text-align: left;
+      padding: 32px;
+
+      .github-button {
+        margin-top: 40px;
+      }
+    }
+
+    title {
+      display: block;
+      font-size: 80px;
+      font-family: 'Archivo Black', sans-serif;
+      line-height: normal;
+      margin-bottom: 40px;
+      max-width: 1080px;
+
+      @media only screen and (max-width: 959px){
+        font-size: 32px;
+      }
+    }
+
+    p {
+      width: 400px;
+      color: white;
+
+      @media only screen and (max-width: 959px){
+        width: 100%;
+        margin-bottom: 0;
+      }
     }
 }
 
@@ -114,14 +137,22 @@
 }
 
 h1 {
-    font-size: 30px;
-    font-family: 'Archivo', sans-serif;
+  font-size: 30px;
+  font-family: 'Archivo', sans-serif;
+
+  @media only screen and (max-width: 959px){
+    font-size: 24px;
+  }
 }
 
 p {
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    align-self: center;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  align-self: center;
+
+  @media only screen and (max-width: 959px){
+    font-size: 18px;
+  }
 }
 
 .main-container {
@@ -134,16 +165,27 @@ p {
         color: white;
     }
 
-    p {
-        color: #dadcde;
+  p {
+    color: #DADCDE;
+  }
+
+  @media only screen and (max-width: 959px){
+    padding-top: 60px;
+
+    .button {
+      margin-left: 32px;
+      margin-bottom: 32px;
     }
+  }
 }
 
 .feature {
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 120px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .feature:last-of-type {
@@ -151,10 +193,15 @@ p {
 }
 
 .feature-summary {
-    margin: auto;
-    text-align: center;
-    max-width: 540px;
-    width: 40%;
+  margin: auto;
+  text-align: center;
+  max-width: 540px;
+  width: 40%;
+
+  @media only screen and (max-width: 959px){
+    width: 100%;
+    text-align: left;
+  }
 }
 
 .feature-summary-h1 {
@@ -237,23 +284,29 @@ p {
 }
 
 .footer {
-    background-color: #333333;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 132px;
+  background-image: linear-gradient(#333333, #222222);
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 132px;
+  text-align: center;
 
-    .footer-content {
-        width: 580px;
-        margin: auto;
-        text-align: center;
-        color: white;
-    }
+  @media only screen and (max-width: 959px) {
+    padding: 60px 32px 80px 32px;
+    text-align: left;
+  }
 
-    .blog-button {
-        background-color: #75edb3;
-        margin-top: 20px;
-    }
+  .footer-content {
+    max-width: 580px;
+    margin: auto;
+    color: white;
+  }
+
+  .blog-button {
+    background-color: #75EDB3;
+    margin-top: 20px;
+
+  }
 
     p {
         color: #dadcde;
@@ -261,15 +314,19 @@ p {
 }
 
 .button {
-    border-radius: 99px;
-    border: none;
-    font-weight: 600;
-    padding: 10px 20px;
-    font-size: 20px;
-    align-self: center;
-    margin-top: 40px;
-    color: #222222;
-    z-index: 100;
+  border-radius: 99px;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 20px;
+  align-self: center;
+  margin-top: 40px;
+  color: #222222;
+  z-index: 100;
+
+  @media only screen and (max-width: 959px) {
+    align-self: flex-start;
+  }
 }
 
 .github-button:hover,
