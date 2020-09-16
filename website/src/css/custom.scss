@@ -69,7 +69,6 @@
   padding: 12px 12px;
   display: flex;
   flex-direction: column;
-  width: 100%;
 
   .navbar-sidebar__items {
     flex-grow: 1;
@@ -79,16 +78,14 @@
     align-content: center;
   }
 
-  .menu__list-item {
-    font-size: 32px;
-    font-weight: bold;
-    font-family: 'Archivo', sans-serif;
-    margin-bottom: 30px;
-  }
-
   .menu__link {
     color: white;
     justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Archivo', sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
