@@ -194,27 +194,24 @@ p {
   justify-content: space-between;
   height: 128px;
   width: 860px;
-}
 
-.select-circle {
-  background: url('/img/ellipse.svg');
-  cursor: pointer;
-  z-index: 100;
-}
+  .select-circle {
+    background: url('/img/ellipse.svg');
+    cursor: pointer;
+    z-index: 100;
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    background-repeat: no-repeat;
 
-.select-circle:hover {
-  background: url('/img/ellipse-hover.svg');
-}
+    &:hover {
+      background: url('/img/ellipse-hover.svg');
+    }
+  }
 
-.selected {
-  background: url('/img/ellipse-selected.svg');
-}
-
-.select-circle, .select-circle:hover {
-  width: 20px;
-  height: 20px;
-  background-size: 20px;
-  background-repeat: no-repeat;
+  .selected, .selected:hover {
+    background: url('/img/ellipse-selected.svg');
+  }
 }
 
 .code {
