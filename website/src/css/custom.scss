@@ -37,6 +37,51 @@
   padding: 20px 40px;
   height: 80px;
   box-shadow: none;
+
+  .navbar__logo {
+    width: 34px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+  @media only screen and (max-width: 959px) {
+    padding: 20px 24px;
+    z-index: 1000;
+
+    .navbar__title {
+      display: none;
+    }
+
+    .navbar__brand {
+      flex-grow: 0;
+      margin-right: 0;
+    }
+
+    .navbar__logo {
+      width: 34px;
+      height: 24px;
+    }
+
+    .navbar__items {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .navbar__items--right {
+      display: none;
+    }
+
+    .navbar__toggle {
+      content: '';
+      background: url('/img/menu.svg');
+      width: 32px;
+      height: 32px;
+
+      svg {
+        display: none;
+      }
+    }
+  }
 }
 
 .navbar__brand {
@@ -86,47 +131,6 @@
     font-family: 'Archivo', sans-serif;
     padding-top: 15px;
     padding-bottom: 15px;
-  }
-}
-
-.navbar {
-  z-index: 1000;
-
-  .navbar__logo {
-    width: 34px;
-    height: 24px;
-    margin-right: 10px;
-  }
-
-  @media only screen and (max-width: 959px) {
-    .navbar__title {
-      display: none;
-    }
-
-    .navbar__brand {
-      flex-grow: 0;
-      margin-right: 0;
-    }
-
-    .navbar__items {
-      justify-content: space-between;
-      flex-direction: row-reverse;
-    }
-
-    .navbar__items--right {
-      display: none;
-    }
-
-    .navbar__toggle {
-      content: '';
-      background: url('/img/menu.svg');
-      width: 32px;
-      height: 32px;
-
-      svg {
-        display: none;
-      }
-    }
   }
 }
 
@@ -399,7 +403,7 @@ p {
   background-color: #333333;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding: 20px 0 0;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -435,7 +439,7 @@ p {
   .made-by {
     width: 100%;
     background: var(--ifm-navbar-background-color);
-    padding: 40px 0 10px;
+    padding: 40px 0 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -443,7 +447,7 @@ p {
 
     & > * {
       padding: 0 5px;
-      font-family: Archivo;
+      font-family: 'Archivo', sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 23px;

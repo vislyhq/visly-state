@@ -16,7 +16,7 @@ function Footer() {
       <BlogButton/>
       <div className='made-by'>
         <span>Made by</span>
-        <a href='https://visly.app/' target='_blank' rel='noreferrer'><img src={`/img/logoDark.svg`} /></a>
+        <a href='https://visly.app/' target='_blank' rel='noreferrer'><img src={`/img/logoDark.svg`} style={{ height: '30px', marginBottom: '-4px'}} /></a>
       </div>
     </footer>
   );
