@@ -166,6 +166,7 @@ p {
   height: 460px;
   margin-top: 20px;
   justify-content: space-evenly;
+  position: relative;
 
   .code-container {
     display: flex;
@@ -266,4 +267,16 @@ p {
 .github-button:hover, .blog-button:hover {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+.feature-left-accessory {
+  position: absolute;
+  left: -200px;
+  top: -100px;
+}
+
+.feature-right-accessory {
+  position: absolute;
+  right: -150px;
+  bottom: -150px;
 }

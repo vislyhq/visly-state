@@ -40,7 +40,7 @@ function Code({code, background}) {
   );
 }
 
-function Feature({title, summary, code}) {
+function Feature({title, summary, code, leftAccessory, rightAccessory}) {
 
   const [selected, setSelected] = useState(0);
   const backgrounds = [
@@ -61,6 +61,16 @@ function Feature({title, summary, code}) {
         <Code 
           code={code}
           background={backgrounds[selected]}/>
+        {leftAccessory && (
+          <div className='feature-left-accessory'>
+            {leftAccessory}
+          </div>
+        )}
+        {rightAccessory && (
+          <div className='feature-right-accessory'>
+            {rightAccessory}
+          </div>
+        )}
       </div>
     </div>
   )

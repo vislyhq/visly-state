@@ -11,33 +11,35 @@ const features = [
       As soon as a change is made on one client it is shared with all other 
       clients instantly and efficiently.`,
     code: `
-      import { syncedState, useValue } from '@visly/state' 
+  import { syncedState, useValue } from '@visly/state' 
 
-      const appState = syncedState({ cursors: [] }) 
+  const appState = syncedState({ cursors: [] }) 
 
-      function Cursors() { 
-        const cursors = useValue(appState, s => s.cursors) 
-        return cursors.map(c => ( 
-          <Cursor location={c.location} color={c.color} /> 
-        )) 
-      }
-    `
+  function Cursors() { 
+    const cursors = useValue(appState, s => s.cursors) 
+    return cursors.map(c => ( 
+      <Cursor location={c.location} color={c.color} /> 
+    )) 
+  }
+    `,
+    leftAccessory: <img className='accessory' src={`/img/sync_left.svg`}/>,
+    rightAccessory: <img className='accessory' src={`/img/sync_right.svg`}/>
   },
   {
     title: 'Share logic',
     summary: `Visly State is built to be used on both the server and client. 
       This makes sharing business logic, data validation, and tests trivial.`,
     code: `
-      import { syncedState } from '@visly/state'
-      
-      export const appState = syncedState({ cursors: [] })
-      export const mutations = {
-        moveCursor: (state, id, location) => {
-          const cursor = state.cursors.find(c => c.id === id)
-          if (!cursor) return
-          cursor.location = location
-        }
-      }
+  import { syncedState } from '@visly/state'
+  
+  export const appState = syncedState({ cursors: [] })
+  export const mutations = {
+    moveCursor: (state, id, location) => {
+      const cursor = state.cursors.find(c => c.id === id)
+      if (!cursor) return
+      cursor.location = location
+    }
+  }
     `
   },
   {
@@ -45,18 +47,20 @@ const features = [
     summary: `Being able to quickly undo & redo operations is a key feature
       in any modern app. Visly State manages this for you simply and efficiently.`,
     code: `
-      import { undo, redo, useMutation } from '@visly/state'
+  import { undo, redo, useMutation } from '@visly/state'
 
-      function Component() {
-        const increment = useMutation(appState, s => s.counter++)
+  function Component() {
+    const increment = useMutation(appState, s => s.count++)
 
-        return [
-          <button onClick={increment}>Increment</button>
-          <button onClick={() => undo(appState)}>Undo</button>
-          <button onClick={() => redo(appState)}>Redo</button>
-        ]
-      }
-    `
+    return [
+      <button onClick={increment}>Increment</button>,
+      <button onClick={() => undo(appState)}>Undo</button>,
+      <button onClick={() => redo(appState)}>Redo</button>
+    ]
+  }
+    `,
+    leftAccessory: <img className='accessory' src={`/img/time_left.svg`}/>,
+    rightAccessory: <img className='accessory' src={`/img/time_right.svg`}/>
   },
   {
     title: 'Improve performance',
@@ -65,14 +69,14 @@ const features = [
       re-renders the components it needs.`,
     code: `
       import { useValue } from '@visly/state'
-
+    
       function Cursor(props) {
-        // Only re-render when this specific cursor has a new value,
-        // not when any cursor moves
+        // Only re-render when this specific cursor
+        // has a new value, not when any cursor moves
         const cursor = useValue(appState, s => {
           return s.cursors.find(c => c.id === props.id)
         })
-
+    
         return <Pointer position={cursor.location} />
       }
     `
@@ -102,9 +106,7 @@ function Home() {
         {features.map((feature, index) =>
           <Feature
             key={index}
-            title={feature.title}
-            summary={feature.summary}
-            code={feature.code}
+            {...feature}
           ></Feature>
         )}
         <GithubButton/>
