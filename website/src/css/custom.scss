@@ -409,7 +409,6 @@ p {
   align-items: center;
 
   @media only screen and (max-width: 959px) {
-    padding: 60px 32px 80px 32px;
     text-align: left;
   }
 
@@ -417,6 +416,11 @@ p {
     max-width: 580px;
     margin: auto;
     color: white;
+
+    @media only screen and (max-width: 959px) {
+      text-align: left;
+      padding: 60px 32px;
+    }
 
     h1 {
       font-size: 40px;
@@ -432,8 +436,13 @@ p {
   }
 
   .blog-button {
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 91px;
+
+    @media only screen and (max-width: 959px) {
+      margin-left: 32px;
+      margin-bottom: 60px;
+    }
   }
 
   .made-by {
