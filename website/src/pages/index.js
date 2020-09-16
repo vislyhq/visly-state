@@ -69,7 +69,6 @@ const features = [
         summary: `React performance is all about minimizing renders.
       Visly State keeps track of which components use what data and only
       re-renders the components it needs.`,
-<<<<<<< HEAD
         icon: 'zap',
         code: `
   import { useValue } from '@visly/state'
@@ -86,23 +85,6 @@ const features = [
     `,
     },
 ]
-=======
-    icon: 'zap',
-    code: `
-      import { useValue } from '@visly/state'
-    
-      function Cursor(props) {
-        // Only re-render when this specific cursor
-        // has a new value, not when any cursor moves
-        const cursor = useValue(appState, s => {
-          return s.cursors.find(c => c.id === props.id)
-        })
-        return <Pointer position={cursor.location} />
-      }
-    `
-  },
-];
->>>>>>> fbfdac2f37d6786dee9232202fc7c04bb3ef8994
 
 function GithubButton() {
     return (
