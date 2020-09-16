@@ -8,7 +8,7 @@ function BackgroundSelect({backgrounds, selected, onSelect}) {
       {
         backgrounds.map((_, index) => {
           const className = index === selected ? 'select-circle selected' : 'select-circle';
-          return <div className={className} onClick={() => onSelect(index)}></div>
+          return <div key={index} className={className} onClick={() => onSelect(index)}></div>
         })
 
       }

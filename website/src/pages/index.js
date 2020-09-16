@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 import Feature from '../components/Feature'
+import CursorSim from '../components/CursorSim';
 import Footer from '../components/Footer'
 
 const features = [
@@ -93,7 +94,7 @@ function GithubButton() {
             className="button github-button"
             href="https://github.com/vislyhq/visly-state"
         >
-            View on Github
+            View on GitHub
         </a>
     )
 }
@@ -110,6 +111,7 @@ function Home() {
                         server.
                     </p>
                     <GithubButton />
+                    <CursorSim />
                 </div>
                 <img className="triangle" src={'/img/triangle.svg'} />
             </header>
