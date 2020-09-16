@@ -126,8 +126,12 @@ p {
   display: flex;
   flex-direction: column;
 
-  p, h1 {
+  h1 {
     color: white;
+  }
+
+  p {
+    color: #DADCDE;
   }
 }
 
@@ -244,6 +248,10 @@ p {
   .blog-button {
     background-color: #75EDB3;
     margin-top: 20px;
+  }
+
+  p {
+    color: #DADCDE;
   }
 }
 
