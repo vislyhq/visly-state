@@ -117,7 +117,7 @@ function Home() {
             </header>
             <section className="main-container">
                 {features.map((feature, index) => (
-                    <Feature key={index} {...feature} />
+                    <Feature key={index} {...feature} initSelected={index} />
                 ))}
                 <GithubButton />
                 <img className="triangle" src={'/img/triangle.svg'} />
