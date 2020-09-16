@@ -14,19 +14,33 @@ const getNewProps = () => ({
   duration: Math.floor(Math.random() * 1000) + 500,
 });
 
+const NUM_STATIC = 4;
+const NUM_MOVING = 4;
+
+const _staticIcons = icons.slice().reverse().slice(0, NUM_STATIC);
+// don't let the static cursors obstruct the header content - restrict x to first and last quarters
+const staticIcons = _staticIcons.map(getNewProps).map(({ x, y }, index) => ({
+  x: x < 0.5 ? (x / 2) : (x / 2 + 0.5),
+  y,
+  icon: _staticIcons[index],
+}));
+
 let i = 0;
 
 function CursorSim() {
-  const parentRef   = useRef(null);
+  const parentRef = useRef(null);
   const [dim, setDim] = useState({ w: 0, h: 0 });
-
-  useEffect ( () => {
+  useEffect(() => {
     if (parentRef.current) {
       setDim({ h: parentRef.current.offsetHeight - 26, w: parentRef.current.offsetWidth - 26 });
     }
   }, [parentRef]);
 
-  const [cursors, setCursors] = useState(icons.map(getNewProps))
+  const [cursors, setCursors] = useState(Array(NUM_MOVING).map(getNewProps))
+  const [display, setDisplay] = useState('none');
+  useEffect(() => {
+    setDisplay('block');
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,27 +67,32 @@ function CursorSim() {
     >
       {cursors.map((c, i) => (
         <Cursor
-          key={i}
-          icon={icons[i]}
+          key={`moving-${i}`}
+          icon={icons[i % icons.length]}
+          display={display}
           {...dim}
           {...c}
+        />
+      ))}
+      {staticIcons.map(({icon, x, y}, i) => (
+        <img
+          key={`static-${i}`}
+          className='cursor'
+          src={`/img/${icon}.svg`}
+          style={{ top: `${Math.floor(y * dim.h)}px`, left: `${Math.floor(x * dim.w)}px`, display }}
         />
       ))}
     </div>
   )
 }
 
-const Cursor = ({icon, x, y, duration, w, h}) => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    setShow(true);
-  });
+const Cursor = ({icon, x, y, duration, w, h, display}) => {
   return (
     <img
       className='cursor'
       src={`/img/${icon}.svg`}
       style={{
-        display: show ? 'block' : 'none',
+        display,
         transition: `transform ${duration}ms ease-in-out`,
         transform: `translate(${Math.floor(x * w)}px, ${Math.floor(y * h)}px)`,
       }}
