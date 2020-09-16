@@ -94,8 +94,9 @@
     padding-bottom: 140px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
-    @media only screen and (max-width: 959px){
+    @media only screen and (max-width: 959px) {
       width: 100%;
       text-align: left;
       padding: 32px;
@@ -113,7 +114,7 @@
       margin-bottom: 40px;
       max-width: 1080px;
 
-      @media only screen and (max-width: 959px){
+      @media only screen and (max-width: 959px) {
         font-size: 32px;
       }
     }
@@ -122,11 +123,12 @@
       width: 400px;
       color: white;
 
-      @media only screen and (max-width: 959px){
+      @media only screen and (max-width: 959px) {
         width: 100%;
         margin-bottom: 0;
       }
     }
+  }
 }
 
 .triangle {
@@ -156,20 +158,20 @@ p {
 }
 
 .main-container {
-    background-image: linear-gradient(#333333, #222222);
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
+  background-image: linear-gradient(#333333, #222222);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
 
-    h1 {
-        color: white;
-    }
+  h1 {
+    color: white;
+  }
 
   p {
     color: #DADCDE;
   }
 
-  @media only screen and (max-width: 959px){
+  @media only screen and (max-width: 959px) {
     padding-top: 60px;
     margin-top: -1px;
 
@@ -236,22 +238,23 @@ p {
     position: relative;
 
     .code-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 720px;
-        height: 460px;
-        position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 720px;
+      height: 460px;
+      position: absolute;
 
-        .gradient-box {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 32px;
-        }
+      .gradient-box {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 32px;
+      }
     }
+  }
 }
 
 .background-select {
@@ -281,8 +284,9 @@ p {
 
     .selected,
     .selected:hover {
-        background: url('/img/ellipse-selected.svg');
+      background: url('/img/ellipse-selected.svg');
     }
+  }
 }
 
 .code {
@@ -366,6 +370,22 @@ p {
 
 .feature-icon {
     padding-bottom: 0.7em;
+}
+
+.cursor-sim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+}
+
+.cursor {
+  z-index: 200;
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .main-wrapper {

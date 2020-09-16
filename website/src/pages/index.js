@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 import Feature from '../components/Feature'
+import CursorSim from '../components/CursorSim';
 import Footer from '../components/Footer'
 
 const features = [
@@ -110,6 +111,7 @@ function Home() {
                         server.
                     </p>
                     <GithubButton />
+                    <CursorSim />
                 </div>
                 <img className="triangle" src={'/img/triangle.svg'} />
             </header>
