@@ -42,11 +42,11 @@ function Code({code, background}) {
   );
 }
 
-function Feature({title, summary, code, icon, leftAccessory, rightAccessory}) {
-  const [selected, setSelected] = useState(0);
+function Feature({title, summary, code, icon, leftAccessory, rightAccessory, initSelected}) {
   const backgrounds = [
     'gradient1.png', 'gradient2.png', 'gradient3.png', 'gradient4.png'
   ]
+  const [selected, setSelected] = useState(initSelected % backgrounds.length);
 
   return (
     <div className='feature'>

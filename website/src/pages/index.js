@@ -88,7 +88,7 @@ const features = [
     },
 ]
 
-function GithubButton() {
+function GitHubButton() {
     return (
         <a
             className="button github-button"
@@ -110,16 +110,16 @@ function Home() {
                         A React state management library that extends to your
                         server.
                     </p>
-                    <GithubButton />
+                    <GitHubButton />
                     <CursorSim />
                 </div>
                 <img className="triangle" src={'/img/triangle.svg'} />
             </header>
             <section className="main-container">
                 {features.map((feature, index) => (
-                    <Feature key={index} {...feature} />
+                    <Feature key={index} {...feature} initSelected={index} />
                 ))}
-                <GithubButton />
+                <GitHubButton />
                 <img className="triangle" src={'/img/triangle.svg'} />
             </section>
             <Footer/>
