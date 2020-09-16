@@ -92,6 +92,8 @@
 }
 
 .navbar {
+  z-index: 1000;
+
   @media only screen and (max-width: 959px) {
     .navbar__title {
       display: none;
