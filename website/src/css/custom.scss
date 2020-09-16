@@ -162,7 +162,7 @@ p {
 .background-select-container {
   align-self: center;
   display: flex;
-  width: 800px;
+  width: 820px;
   height: 460px;
   margin-top: 20px;
   justify-content: space-evenly;
@@ -172,8 +172,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 800px;
-    height: 400px;
+    width: 720px;
+    height: 460px;
     position: absolute;
 
     .gradient-box {
@@ -182,6 +182,7 @@ p {
       position: absolute;
       top: 0;
       left: 0;
+      border-radius: 32px;
     }
   }
 }
@@ -218,9 +219,6 @@ p {
 
 .code {
   border-radius: 20px;
-  position: absolute;
-  top: 10%;
-  left: 15%;
   width: 70%;
   z-index: 3;
 }
