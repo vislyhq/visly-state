@@ -11,8 +11,10 @@ const icons = [
 const getNewProps = () => ({
   x: Math.random(),
   y: Math.random(),
-  duration: Math.floor(Math.random() * 2000) + 100,
+  duration: Math.floor(Math.random() * 1000) + 500,
 });
+
+const initialPos = getNewProps();
 
 let i = 0;
 
@@ -22,7 +24,7 @@ function CursorSim() {
 
   useEffect ( () => {
     if (parentRef.current) {
-      setDim({ h: parentRef.current.offsetHeight, w: parentRef.current.offsetWidth });
+      setDim({ h: parentRef.current.offsetHeight - 26, w: parentRef.current.offsetWidth - 26 });
     }
   }, [parentRef]);
 
@@ -69,7 +71,7 @@ const Cursor = ({icon, x, y, duration, w, h}) => (
     src={`/img/${icon}.svg`}
     style={{
       transition: `transform ${duration}ms ease-in-out`,
-      transform: `translate(${Math.floor(x * w)}px, ${y * h}px)`,
+      transform: `translate(${Math.floor(x * w)}px, ${Math.floor(y * h)}px)`,
     }}
   />
 );
