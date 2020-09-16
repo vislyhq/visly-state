@@ -64,6 +64,54 @@
   }
 }
 
+.navbar-sidebar {
+  padding: 12px 12px;
+}
+
+.navbar {
+  @media only screen and (max-width: 959px) {
+    .navbar__title {
+      display: none;
+    }
+
+    .navbar__brand {
+      flex-grow: 0;
+      margin-right: 0;
+    }
+
+    .navbar__logo {
+      width: 34px;
+      height: 24px;
+    }
+
+    .navbar__items {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .navbar__items--right {
+      display: none;
+    }
+
+    .navbar__toggle {
+      content: '';
+      background: url('/img/menu.svg');
+      width: 32px;
+      height: 32px;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+}
+
+.navbar__toggle {
+  content: '';
+  background-image: url();
+}
+
+
 .navbar__link--active,
 .navbar__link:hover,
 .navbar__title:hover {
