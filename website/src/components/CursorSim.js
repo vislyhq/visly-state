@@ -65,15 +65,22 @@ function CursorSim() {
   )
 }
 
-const Cursor = ({icon, x, y, duration, w, h}) => (
-  <img
-    className='cursor'
-    src={`/img/${icon}.svg`}
-    style={{
-      transition: `transform ${duration}ms ease-in-out`,
-      transform: `translate(${Math.floor(x * w)}px, ${Math.floor(y * h)}px)`,
-    }}
-  />
-);
+const Cursor = ({icon, x, y, duration, w, h}) => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(true);
+  });
+  return (
+    <img
+      className='cursor'
+      src={`/img/${icon}.svg`}
+      style={{
+        display: show ? 'block' : 'none',
+        transition: `transform ${duration}ms ease-in-out`,
+        transform: `translate(${Math.floor(x * w)}px, ${Math.floor(y * h)}px)`,
+      }}
+    />
+  );
+}
 
 export default CursorSim;
