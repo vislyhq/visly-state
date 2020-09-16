@@ -100,7 +100,7 @@ module.exports = {
             'https://github.com/vislyhq/visly-state/edit/master/website/blog/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       },
     ],

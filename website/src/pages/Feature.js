@@ -37,7 +37,6 @@ function Code({code, background}) {
             </SyntaxHighlighter>
       </div>
     </div>
-    
   );
 }
 
