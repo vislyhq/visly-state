@@ -230,7 +230,7 @@ p {
   align-self: center;
   display: flex;
   width: 100%;
-  max-width: 820px;
+  max-width: 900px;
   height: 460px;
   margin-top: 20px;
   justify-content: space-evenly;
@@ -240,7 +240,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 720px;
+    width: 800px;
     height: 460px;
     position: absolute;
 
@@ -270,7 +270,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   height: 128px;
-  width: 860px;
+  flex-grow: 1;
 
   @media only screen and (max-width: 959px) {
     display: none;
@@ -298,11 +298,11 @@ p {
 
 .code {
   border-radius: 20px;
-  width: 70%;
+  width: 72%;
   z-index: 3;
 
   @media only screen and (max-width: 959px) {
-    margin-left: 232px;
+    margin-left: 252px;
   }
 }
 
