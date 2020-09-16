@@ -54,7 +54,6 @@ const features = [
 
   function Component() {
     const increment = useMutation(appState, s => s.count++)
-
     return [
       <button onClick={increment}>Increment</button>,
       <button onClick={() => undo(appState)}>Undo</button>,
@@ -80,7 +79,6 @@ const features = [
         const cursor = useValue(appState, s => {
           return s.cursors.find(c => c.id === props.id)
         })
-    
         return <Pointer position={cursor.location} />
       }
     `

@@ -22,12 +22,14 @@ function Code({code, background}) {
     padding: 10,
     marginLeft: -20,
     marginRight: -20,
+
+    boxShadow: '0 20px 40px -5px rgba(0, 0, 0, 0.6)'
   }
 
   return (
     <div className='code-container'>
       <img className='gradient-box' src={`/img/${background}`}/>
-      <div className='code' padding={['bottom']}>
+      <div className='code'>
             <SyntaxHighlighter
                   language='jsx'
                   style={theme}
