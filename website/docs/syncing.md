@@ -3,13 +3,13 @@ title: Syncing state
 sidebar_label: Syncing state
 ---
 
-A core part of Visly State is allowing you to eficiently syncronize data between your frontend, backend, and even multiple frontend clients. Because this requires integration with your custom backend it needs some additional setup. For this walkthrough we'll assme you have a React frontend and a Node + Express backend and want to syncronize state changes to all connected clients using websockets. However Visly State does not have any limitations when it comes to backend framework or transport protocol.
+A core part of Visly State is allowing you to efficiently synchronize data between your frontend, backend, and even multiple frontend clients. Because this requires integration with your custom backend, it needs some additional setup. For this walkthrough, we'll assume you have a React frontend and a Node + Express backend and want to synchronize state changes to all connected clients using websockets. However, Visly State does not have any limitations when it comes to backend framework or transport protocol.
 
-## In your react app
+## In your React app
 
-First thing you'll need to do is set up a synced state in your React app and configure a sync adapter. We'll use the built in support for a websocket based sync adapter however you can write your own sync adapter using a different protocol or even sync via services such as Pusher.
+The first thing you'll need to do is set up a synced state in your React app and configure a sync adapter. We'll use the built-in support for a websocket-based sync adapter, however you can write your own sync adapter using a different protocol or even sync via services such as Pusher.
 
-We'll create a file `state.js` which contains our synced state. This file will later also be imported into our backend.
+We'll create a file named `state.js` that contains our synced state. This file will later also be imported into our backend.
 
 ```tsx
 import { syncedState } from '@visly/state'
@@ -17,7 +17,7 @@ import { syncedState } from '@visly/state'
 export const appState = syncedState('appstate', { items: [] })
 ```
 
-We will also add the following configuration code att the root of our application, `index.js` id using create-react-app.
+We'll also add the following configuration code at the root of our application - `index.js` if using create-react-app.
 
 ```tsx
 import { setSyncAdapter, WSSSyncAdapter } from '@visly/state'
@@ -25,11 +25,11 @@ import { setSyncAdapter, WSSSyncAdapter } from '@visly/state'
 setSyncAdapter(WSSSyncAdapter('wss://api.example.com'))
 ```
 
-This is all you'll have to do on the client side to get things working. Mutations will automatically sync to your backend and changes comming in from other clients will automatically be applied to your state and update your components. For your own applications you'll want to update the websocket enpoint used and most likely point it it localhost for development.
+This is all you'll have to do on the client side to get things working. Mutations will automatically sync to your backend and changes coming in from other clients will automatically be applied to your state and update your components. For your own applications, you'll want to update the websocket endpoint used and most likely point it at localhost for development.
 
 ## On your backend
 
-For this we are going to assume you are building a Node server using express. You'll need to install the following node libraries if you haven't already: `express`, `express-ws`. This example sets up a sync adapter for the server which listens to websocket connections from the client and applies them to the correct state object on the server and then broadcasts that message out to all connected clients. In a real world application you would want to look at the sender of the data and only transmit the updates to connections which should have access to the data being transmitted.
+For this, we're going to assume you are building a Node server using Express. You'll need to install the following Node libraries if you haven't already: `express`, `express-ws`. This example sets up a sync adapter for the server that listens to websocket connections from the client and applies them to the correct state object on the server and then broadcasts that message out to all connected clients. In a real world application you would want to look at the sender of the data and only transmit the updates to connections that should have access to the data being transmitted.
 
 ```tsx
 import '../shared/state'

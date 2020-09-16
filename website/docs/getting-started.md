@@ -6,15 +6,15 @@ slug: /
 
 ## Installation
 
-Visly state work with React & Node.js, whether you use JavaScript or TypeScript.
+Visly State works with React & Node.js, whether you use JavaScript or TypeScript.
 
-Install it using npm
+Install it using npm:
 
 ```sh
 npm install @visly/state
 ```
 
-or yarn
+or yarn:
 
 ```sh
 yarn add @visly/state

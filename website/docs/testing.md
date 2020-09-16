@@ -3,7 +3,7 @@ title: Testing
 sidebar_label: Testing
 ---
 
-Becuase Visly State for the most part just deals with plain old JavaScript functions they are really easy to test with any testing library out there. We'll be using Jest for these examples though.
+Because Visly State for the most part just deals with plain old JavaScript functions, they are really easy to test with any testing library out there. We'll be using Jest for these examples though.
 
 ```tsx
 import { appState, selectors, mutations } from './state'
@@ -15,11 +15,11 @@ test('mySelector works as expected', () => {
 
 test('myMutation works as expected', () => {
     appState.set(mutations.myMutation)
-    expect(appState.get()).toEqual({ count: 1})
+    expect(appState.get()).toEqual({ count: 1 })
 })
 ```
 
-While this works well for small examples like this, it is often necesarry to set up a more complex state before testing selectors and mutations. The simplest way to do this is by calling `.set()` on your store before you run your test and then then reset your application state before each test is run.
+While this works well for small examples like this, it is often necessary to set up a more complex state before testing selectors and mutations. The simplest way to do this is by calling `.set()` on your store before you run your test and then then reset your application state before each test is run.
 
 ```tsx
 import { appState, selectors, mutations } from './state'
@@ -35,7 +35,7 @@ test('mySelector works as expected', () => {
 
 test('myMutation works as expected', () => {
     appState.set(mutations.myMutation)
-    expect(appState.get()).toEqual({ count: 1})
+    expect(appState.get()).toEqual({ count: 1 })
 })
 ```
 
@@ -47,6 +47,6 @@ import { partialMutation, mutations } from './state'
 test('myMutation works as expected', () => {
     const increment = partialMutation(mutations.increment)
     const newState = increment({count: 1})
-    expect(newState).toEqual({ count: 2})
+    expect(newState).toEqual({ count: 2 })
 })
 ```

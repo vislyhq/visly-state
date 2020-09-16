@@ -1,13 +1,13 @@
 ---
-title: Organising code
-sidebar_label: Organising code
+title: Organizing code
+sidebar_label: Organizing code
 ---
 
-Visly State doesn't care how you organize your state, selectors, and mutations. However we have discovered some patterns while building Visly which may be helpful to you as you adopt Visly State in your own applications.
+Visly State doesn't care how you organize your state, selectors, and mutations; however, we have discovered some patterns while building Visly which may be helpful to you in adopting Visly State.
 
-## Combinding local and remote state
+## Combining local and remote state
 
-Typically you want to have both local and remote state which depends on one another. For example your data models will be remote state synced to the server but you'll also have local state such as what item is currently selected by the use which you don't want to sync to the server but hich at the same time is dependant on what items exist in the data model. For this we rely on `combinedState` to combine the remote and local stores and write mutations and selectors which operate on this combined store.
+Typically, your local and remote state will depend on each another. For example, your data models will be remote state synced to the server, but you'll also have local state such as the ID of the item currently selected, which you don't want to sync to the server but which at the same time is dependant on what items exist in the data model. For this, we rely on `combinedState` to combine the remote and local states and write mutations and selectors which operate on this combined store.
 
 ```tsx
 import { syncedState } from '@visly/state'
@@ -51,7 +51,7 @@ export const selectors = {
 
 ## Namespacing selectors and mutations
 
-As you may have noticed throughout the examples we tend to place mutations and selectors within exported objects called `mutations` and `selectors`. We typically export these object from the module which defines the state. This makes it very obvious to the other developers which operations exist on the state.
+As you may have noticed throughout the examples, we tend to place mutations and selectors within exported objects called `mutations` and `selectors`. We typically export these objects from the module which defines the state. This makes it very obvious to the other developers which operations exist on the state.
 
 ```tsx
 import { state } from '@visly/state'
@@ -63,8 +63,8 @@ export const selectors = { ... }
 
 ## Using smaller states for independant features
 
-We typically have one large state which holds all the main data models for the application but then we also have many smaller stores for independant features. For example in Visly we have the ability to pan around and zoom in on the main editor canvas, we store this state in a `zoomStore` as it is independant from data in any other stores.
+We typically have one large state that holds all the main data models for the application, but then we also have many smaller stores for independant features. For example, in Visly we have the ability to pan around and zoom in on the main editor canvas - we store this state in a `zoomStore`, as it is independant from data in the rest of the app.
 
 ## Seperating shared code
 
-We recommend creating a module with no React / browser dependencies which holds the state, selectors, and mutations which operate on data which is shared between Both React and Node environments. This way code is easily shared between client and server. If we wish to add any React-specific functionaility such as custom hooks wrapping state operations we place these outside of the main shared module. This makes state easy to re-use and test. 
+We recommend creating a module with no React / browser dependencies that holds the state, selectors, and mutations which operate on data that is shared between both React and Node environments. This way, code is easily shared between client and server. If you wish to add any React-specific functionaility such as custom hooks that wrap state operations, you would place these outside of the main shared module. This makes state easy to reuse and test. 

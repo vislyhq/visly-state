@@ -3,7 +3,7 @@ title: Selectors
 sidebar_label: Selectors
 ---
 
-Selectors are what make components using Visly State performant and efficient. They ensure you component only subscribes to data which it requires to render itself and therefor will only update if that data changes. Apart from selecting a subset of the application state, a selector may also perform data transformations. Visly State internally manages making this efficient in regards to re-renders.
+Selectors are what make using Visly State performant and efficient. They ensure your component only subscribes to data that is required to render the component. Therefore, it will only update if that data changes. Apart from selecting a subset of the application state, a selector may also perform data transformations. Visly State automatically makes this efficient in regards to re-renders.
 
 ```tsx
 import { state, useValue } from '@visly/state
@@ -22,7 +22,7 @@ function Component() {
 }
 ```
 
-While we reccomend defining selectors as re-usable and testable functions like above, you may also use arrow functions for one-off selectors.
+While we reccomend defining selectors as reusable and testable functions like above, you may also use arrow functions for one-off selectors.
 
 ```tsx
 import { state, useValue } from '@visly/state
@@ -35,7 +35,7 @@ function Component() {
 }
 ```
 
-Also, as mentioned above, selectors don't have to return a struct subset of the data in the underlying state container. They may also perform computations on the state and return a derived value of some kind.
+Also, as mentioned above, selectors don't have to return a strict subset of the data in the underlying state container. They may also perform computations on the state and return a derived value of some kind.
 
 ```tsx
 import { state, useValue } from '@visly/state
@@ -54,7 +54,7 @@ function Component() {
 }
 ```
 
-Like the rest of Visly State, selectors can also be used outside of React. For example in tests, or in a Node backend. In this case selectors can be passed to the `get()` method on the state container.
+Like the rest of Visly State, selectors can also be used outside of React. For example, in tests or in a Node backend. In this case, selectors can be passed to the `.get()` method on the state container.
 
 
 ```tsx
@@ -74,7 +74,7 @@ console.log(arrayOneCount)
 
 ## Passing arguments to selectors
 
-Selectors will sometimes need additional information to select the correct data. For example if you wanted to make a selector which returned a item with some specific ID. Visly State doesn't have any special support for this, however we can use higher order function to achieve this result.
+Selectors will sometimes need additional information to select the correct data, for example, if you wanted to make a selector that returned an item with some specific ID. Visly State doesn't have any special support for this, however we can use higher order functions to achieve this result.
 
 ```tsx
 import { state, useValue } from '@visly/state
@@ -93,4 +93,4 @@ function Component(props) {
 }
 ```
 
-As you can see above we have changed our selector to be a function which takes an id and then returns a state selector. This way we can pass any arguments we want to the selector.
+As you can see above, we've changed our selector to be a function that takes an ID and then returns a state selector. This way, we can pass any arguments we want to the selector.
