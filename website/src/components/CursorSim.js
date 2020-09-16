@@ -14,8 +14,6 @@ const getNewProps = () => ({
   duration: Math.floor(Math.random() * 1000) + 500,
 });
 
-const initialPos = getNewProps();
-
 let i = 0;
 
 function CursorSim() {

@@ -1,13 +1,12 @@
 import React from 'react';
 
 function BlogButton() {
-  return <a class="button blog-button" href="https://visly.app/blog">
+  return <a className="button blog-button" href="https://visly.app/blog">
     Read our blog
     </a>
 }
 
 function Footer() {
-
   return (
     <footer className='footer'>
       <div className='footer-content'>
@@ -15,6 +14,9 @@ function Footer() {
         <p>Visly is a design tool that allows you to design & build React components visually. We care deeply about quality - read more about what we do.</p>
       </div>
       <BlogButton/>
+      <div className='made-by'>
+        <span>Made by</span><img src={`/img/logoDark.svg`} />
+      </div>
     </footer>
   );
 }

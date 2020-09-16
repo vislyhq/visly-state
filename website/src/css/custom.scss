@@ -320,8 +320,9 @@ p {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  padding-bottom: 132px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 
   @media only screen and (max-width: 959px) {
     padding: 60px 32px 80px 32px;
@@ -337,7 +338,26 @@ p {
   .blog-button {
     background-color: #75EDB3;
     margin-top: 20px;
+    margin-bottom: 91px;
+  }
 
+  .made-by {
+    width: 100%;
+    background: var(--ifm-navbar-background-color);
+    padding: 40px 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      padding: 0 5px;
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 28px;
+    }
   }
 
   p {
