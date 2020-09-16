@@ -94,7 +94,7 @@ function GithubButton() {
             className="button github-button"
             href="https://github.com/vislyhq/visly-state"
         >
-            View on Github
+            View on GitHub
         </a>
     )
 }
