@@ -30,11 +30,7 @@ module.exports = {
         { 
           href: 'https://github.com/vislyhq/visly-state', 
           label: 'GitHub',
-          position: 'left'},
-        {
-          href: 'https://visly.app/',
-          label: 'Made by Visly',
-          position: 'right',
+          position: 'left'
         },
       ],
     },

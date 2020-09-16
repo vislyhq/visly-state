@@ -15,7 +15,8 @@ function Footer() {
       </div>
       <BlogButton/>
       <div className='made-by'>
-        <span>Made by</span><img src={`/img/logoDark.svg`} />
+        <span>Made by</span>
+        <a href='https://visly.app/' target='_blank' rel='noreferrer'><img src={`/img/logoDark.svg`} /></a>
       </div>
     </footer>
   );
