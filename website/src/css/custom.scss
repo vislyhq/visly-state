@@ -357,15 +357,14 @@ p {
 
   color: #222222 !important;
 
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
   @media only screen and (max-width: 959px) {
     align-self: flex-start;
   }
-}
-
-.github-button:hover,
-.blog-button:hover {
-  text-decoration: none;
-  color: #ffffff;
 }
 
 .feature-left-accessory {
