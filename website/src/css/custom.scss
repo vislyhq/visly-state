@@ -179,6 +179,7 @@ p {
     .button {
       margin-left: 32px;
       margin-bottom: 32px;
+      margin-top: 0;
     }
   }
 }
@@ -190,10 +191,18 @@ p {
   margin-bottom: 120px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media only screen and (max-width: 959px) {
+    margin-bottom: 0;
+  }
 }
 
 .feature:last-of-type {
   margin-bottom: 40px;
+
+  @media only screen and (max-width: 959px) {
+    margin-bottom: 0;
+  }
 }
 
 .feature-summary {
@@ -226,10 +235,6 @@ p {
   justify-content: space-evenly;
   position: relative;
 
-  @media only screen and (max-width: 959px) {
-    overflow: hidden;
-  }
-
   .code-container {
     display: flex;
     align-items: center;
@@ -238,6 +243,12 @@ p {
     height: 460px;
     position: absolute;
 
+    @media only screen and (max-width: 959px) {
+      margin-left: -72px;
+      height: 380px;
+    }
+
+
     .gradient-box {
       width: 100%;
       height: 100%;
@@ -245,6 +256,10 @@ p {
       top: 0;
       left: 0;
       border-radius: 32px;
+
+      @media only screen and (max-width: 959px) {
+        border-radius: 0;
+      }
     }
   }
 }
@@ -285,6 +300,10 @@ p {
   border-radius: 20px;
   width: 70%;
   z-index: 3;
+
+  @media only screen and (max-width: 959px) {
+    margin-left: 280px;
+  }
 }
 
 .main-container > .triangle {
@@ -361,6 +380,12 @@ p {
   bottom: -150px;
 }
 
+.feature-left-accessory, .feature-right-accessory {
+  @media only screen and (max-width: 959px) {
+    display: none;
+  }
+}
+
 .feature-icon {
   padding-bottom: 0.7em;
 }
@@ -389,6 +414,10 @@ p {
 
   p {
     color: #dadcde;
+  }
+
+  @media only screen and (max-width: 959px) {
+    overflow: hidden;
   }
 
   .menu__list-item {
