@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { atomDark as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 function BackgroundSelect({backgrounds, selected, onSelect}) {
   return (
