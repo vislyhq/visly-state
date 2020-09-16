@@ -165,6 +165,11 @@
       max-width: 1072px;
       letter-spacing: -1.5px;
 
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #222222;
+      box-sizing: border-box;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 0px #71E6ED;
+
       @media only screen and (max-width: 959px) {
         font-size: 32px;
       }
@@ -359,11 +364,6 @@ p {
   position: relative;
 }
 
-.github-button {
-  background-color: #f48b68;
-  color: black;
-}
-
 .footer {
   background-image: linear-gradient(#333333, #222222);
   display: flex;
@@ -385,7 +385,6 @@ p {
   }
 
   .blog-button {
-    background-color: #75EDB3;
     margin-top: 20px;
     margin-bottom: 91px;
   }
@@ -426,9 +425,15 @@ p {
 
   color: #222222 !important;
 
+  background: #FFFFFF;
+  border: 1px solid #222222 !important;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 0px #71E6ED;
+  border-radius: 99px;
+
   &:hover {
     text-decoration: none;
-    opacity: 0.8;
+    background: #ddd;
   }
 
   @media only screen and (max-width: 959px) {
