@@ -11,7 +11,7 @@ const icons = [
 const getNewProps = () => ({
   x: Math.random(),
   y: Math.random(),
-  duration: Math.floor(Math.random() * 3000) + 500,
+  duration: Math.floor(Math.random() * 2000) + 100,
 });
 
 let i = 0;
@@ -69,7 +69,7 @@ const Cursor = ({icon, x, y, duration, w, h}) => (
     className='cursor'
     src={`/img/${icon}.svg`}
     style={{
-      transition: `transform ${duration}ms ease`,
+      transition: `transform ${duration}ms ease-in-out`,
       transform: `translate(${Math.floor(x * w)}px, ${y * h}px)`,
     }}
   />
