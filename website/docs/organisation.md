@@ -65,6 +65,6 @@ export const selectors = { ... }
 
 We typically have one large state that holds all the main data models for the application, but then we also have many smaller stores for independant features. For example, in Visly we have the ability to pan around and zoom in on the main editor canvas - we store this state in a `zoomStore`, as it is independant from data in the rest of the app.
 
-## Seperating shared code
+## Separating shared code
 
 We recommend creating a module with no React / browser dependencies that holds the state, selectors, and mutations which operate on data that is shared between both React and Node environments. This way, code is easily shared between client and server. If you wish to add any React-specific functionaility such as custom hooks that wrap state operations, you would place these outside of the main shared module. This makes state easy to reuse and test. 
