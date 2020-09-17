@@ -3,7 +3,7 @@ import Anchor from 'react-scrollable-anchor';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {atomDark as theme} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { bgState } from '../../../backend/state'
-import { useValue, useMutation } from '@visly/state'
+import { useValue, useMutation } from '@visly/state/dist/browser'
 
 function BackgroundSelect({backgrounds, selected, onSelect}) {
   return (
