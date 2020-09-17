@@ -3,10 +3,13 @@ import { useValue, useMutation } from '@visly/state'
 import { gameState, mutations } from './state';
 import { Board } from './Board';
 import { Score } from './Score';
-import logo from './assets/logoDark.svg';
+import arrow from './assets/arrowRight.svg';
+import logo from './assets/logo.svg';
+import logoBig from './assets/logoDark.svg';
 import './App.css'
 
 function App() {
+  // should display this...
   const currentPlayer = useValue(gameState, s => s.currentPlayer)
   const winner = useValue(gameState, s => s.winner)
   const noughtScore = useValue(gameState, s => s.noughtScore)
@@ -16,18 +19,18 @@ function App() {
   const reset = useMutation(gameState, mutations.reset)
 
   return (
-    <div>
-      {winner === null && (
-        <div>{currentPlayer}'s move</div>
-      )}
-      {winner && (
-        <div>{winner} won!</div>
-      )}
-      {winner === false && (
-        <div>It's a tie!</div>
-      )}
+    <div className='root'>
+      <div className='header'>
+        <img src={logo} alt='Visly' />
+        <div className='button reset' onClick={reset}>Reset</div>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
+          <div className='button new-tab'>
+            Open a new tab <img src={arrow} alt='new tab' />
+          </div>
+        </a>
+      </div>
+
       <Board disabled={!!winner}/>
-      <div className='button' onClick={reset}>Reset</div>
 
       <div className='scores-row'>
         <Score title='PLAYER 1' score={crossScore} addClass='cross'/>
@@ -37,7 +40,7 @@ function App() {
       <div className='made-by'>
         <span className='made-by-p'>Made by</span>
         <a href='https://visly.app/' target='_blank' rel='noopener noreferrer'>
-          <img src={logo} style={{ height: '30px', marginBottom: '-1px'}} />
+          <img src={logoBig} alt='Visly' style={{ height: '30px', marginBottom: '-1px'}} />
         </a>
       </div>
     </div>

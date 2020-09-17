@@ -12,7 +12,7 @@ interface SquareProps {
 export function Square({ player, onClick }: SquareProps) {
   return (
     <div className={`square`} onClick={onClick}>
-      {player && <img src={player === Player.X ? cross : nought}/>}
+      {player && <img alt={player} src={player === Player.X ? cross : nought}/>}
     </div>
   )
 }

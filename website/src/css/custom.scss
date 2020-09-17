@@ -489,8 +489,6 @@ p {
 
 .button {
   font-family: 'Archivo Black', sans-serif;
-  border-radius: 99px;
-  border: none;
   padding: 10px 20px;
   font-size: 20px;
   align-self: center;
@@ -502,9 +500,9 @@ p {
 
   background: #FFFFFF;
   border: 1px solid #222222 !important;
+  border-radius: 99px;
   box-sizing: border-box;
   box-shadow: 2px 3px 0px #71E6ED;
-  border-radius: 99px;
 
   &:hover {
     text-decoration: none;
