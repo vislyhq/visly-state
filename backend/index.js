@@ -1,55 +1,61 @@
-import { bgState } from "./state";
-import express from "express";
-import enableWs from "express-ws";
+import { bgState } from './state'
+import express from 'express'
+import enableWs from 'express-ws'
 import { setSyncAdapter, SyncPayloadType } from '@visly/state'
 
-const app = enableWs(express()).app;
+const app = enableWs(express()).app
 
 setSyncAdapter((applyPatches, setState) => {
-  const conections = new Set();
-  
-  app.ws("/", (ws) => {
-    conections.add(ws);
+    const conections = new Set()
 
-    ws.send(
-      JSON.stringify({ type: SyncPayloadType.FullSync, data: bgState.get(), bgState.syncKey })
-    )
+    app.ws('/', ws => {
+        conections.add(ws)
 
-    ws.on("message", (msg) => {
-      for (const connection of conections) {
-        if (connection !== ws && connection.readyState === 1) {
-          connection.send(msg);
-        }
-      }
+        ws.send(
+            JSON.stringify({
+                type: SyncPayloadType.FullSync,
+                data: bgState.get(),
+                key: bgState.syncKey,
+            })
+        )
 
-      const { type, key, data } = JSON.parse(msg);
+        ws.on('message', msg => {
+            for (const connection of conections) {
+                if (connection !== ws && connection.readyState === 1) {
+                    connection.send(msg)
+                }
+            }
 
-      switch (type) {
-        case SyncPayloadType.Patches:
-          applyPatches(key, data);
-          break;
-        case SyncPayloadType.FullSync:
-          setState(key, data);
-          break;
-      }
-    });
+            const { type, key, data } = JSON.parse(msg)
 
-    ws.on("close", () => {
-      conections.delete(ws);
-    });
-  });
+            switch (type) {
+                case SyncPayloadType.Patches:
+                    applyPatches(key, data)
+                    break
+                case SyncPayloadType.FullSync:
+                    setState(key, data)
+                    break
+            }
+        })
 
-  return (key, patches) => {
-    conections.forEach((conn) => {
-      if (conn.readyState === WebSocket.OPEN) {
-        conn.send(
-          JSON.stringify({ type: SyncPayloadType.Patches, data: patches, key })
-        );
-      }
-    });
-  };
-});
+        ws.on('close', () => {
+            conections.delete(ws)
+        })
+    })
 
+    return (key, patches) => {
+        conections.forEach(conn => {
+            if (conn.readyState === WebSocket.OPEN) {
+                conn.send(
+                    JSON.stringify({
+                        type: SyncPayloadType.Patches,
+                        data: patches,
+                        key,
+                    })
+                )
+            }
+        })
+    }
+})
 
 app.listen(process.env.PORT, () => console.log('server started'))
-

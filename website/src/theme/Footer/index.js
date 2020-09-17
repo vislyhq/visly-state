@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- function Footer() {
-   return null;
- }
+function Footer() {
+    return null
+}
 
-export default Footer;
+export default Footer

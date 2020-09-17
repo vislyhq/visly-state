@@ -4,26 +4,28 @@ import { configureAnchors } from 'react-scrollable-anchor'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 import Feature from '../components/Feature'
-import CursorSim from '../components/CursorSim';
+import CursorSim from '../components/CursorSim'
 import Footer from '../components/Footer'
 import { setSyncAdapter, WSSyncAdapter } from '@visly/state'
 
-configureAnchors({offset: -80, scrollDuration: 200, keepLastAnchorHash: true})
+configureAnchors({ offset: -80, scrollDuration: 200, keepLastAnchorHash: true })
 
 // Check that we are running on client-side
-if (window.document) {
-  setSyncAdapter(WSSyncAdapter('wss://visly-state-website-backend.herokuapp.com'))
+if (typeof window !== 'undefined') {
+    setSyncAdapter(
+        WSSyncAdapter('wss://visly-state-website-backend.herokuapp.com')
+    )
 }
 
 const features = [
-  {
-    anchor: 'sync',
-    title: 'Synchronize data',
-    summary: `Share state between multiple clients. 
+    {
+        anchor: 'sync',
+        title: 'Synchronize data',
+        summary: `Share state between multiple clients. 
       As soon as a change is made on one client it is shared with all other 
       clients instantly and efficiently.`,
-    icon: 'refresh',
-    code: `
+        icon: 'refresh',
+        code: `
   import { syncedState, useValue } from '@visly/state' 
 
   const appState = syncedState({ cursors: [] }) 
@@ -35,16 +37,16 @@ const features = [
     )) 
   }
     `,
-    leftAccessory: 'sync_left',
-    rightAccessory: 'sync_right',
-  },
-  {
-    anchor: 'share',
-    title: 'Share logic',
-    summary: `Visly State is built to be used on both the server and client. 
+        leftAccessory: 'sync_left',
+        rightAccessory: 'sync_right',
+    },
+    {
+        anchor: 'share',
+        title: 'Share logic',
+        summary: `Visly State is built to be used on both the server and client. 
       This makes sharing business logic, data validation, and tests trivial.`,
-    icon: 'share',
-    code: `
+        icon: 'share',
+        code: `
   import { syncedState } from '@visly/state'
   
   export const appState = syncedState({ cursors: [] })
@@ -57,14 +59,14 @@ const features = [
     }
   }
     `,
-  },
-  {
-    anchor: 'time',
-    title: 'Time travel',
-    summary: `Being able to quickly undo & redo operations is a key feature
+    },
+    {
+        anchor: 'time',
+        title: 'Time travel',
+        summary: `Being able to quickly undo & redo operations is a key feature
       in any modern app. Visly State manages this for you simply and efficiently.`,
-    icon: 'watch',
-    code: `
+        icon: 'watch',
+        code: `
   import { undo, redo, useMutation } from '@visly/state'
 
   function Component() {
@@ -77,17 +79,17 @@ const features = [
     ]
   }
     `,
-    leftAccessory: 'time_left',
-    rightAccessory: 'time_right',
-  },
-  {
-    anchor: 'perf',
-    title: 'Improve performance',
-    summary: `React performance is all about minimizing renders.
+        leftAccessory: 'time_left',
+        rightAccessory: 'time_right',
+    },
+    {
+        anchor: 'perf',
+        title: 'Improve performance',
+        summary: `React performance is all about minimizing renders.
       Visly State keeps track of which components use what data and only
       re-renders the components it needs.`,
-    icon: 'zap',
-    code: `
+        icon: 'zap',
+        code: `
   import { useValue } from '@visly/state'
 
   function Cursor(props) {
@@ -100,46 +102,46 @@ const features = [
     return <Pointer position={cursor.location} />
   }
     `,
-  },
+    },
 ]
 
 function GitHubButton() {
-  return (
-    <a
-      className="button github-button"
-      href="https://github.com/vislyhq/visly-state"
-    >
-      View on GitHub
-    </a>
-  )
+    return (
+        <a
+            className="button github-button"
+            href="https://github.com/vislyhq/visly-state"
+        >
+            View on GitHub
+        </a>
+    )
 }
 
 function Home() {
-  const title = 'React state for real-time apps'
-  return (
-    <Layout title="Visly State">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className="hero-container">
-          <title>{title.toUpperCase()}</title>
-          <p>
-            A React state management library that extends to your
-            server.
-          </p>
-          <GitHubButton/>
-          <CursorSim/>
-        </div>
-        <img className="triangle" src={'/img/triangle.svg'}/>
-      </header>
-      <section className="main-container">
-        {features.map((feature, index) => (
-          <Feature key={index} {...feature} index={index}/>
-        ))}
-        <GitHubButton/>
-        <img className="triangle" src={'/img/triangle.svg'}/>
-      </section>
-      <Footer/>
-    </Layout>
-  )
+    const title = 'React state for real-time apps'
+    return (
+        <Layout title="Visly State">
+            <header className={clsx('hero hero--primary', styles.heroBanner)}>
+                <div className="hero-container">
+                    <title>{title.toUpperCase()}</title>
+                    <p>
+                        A React state management library that extends to your
+                        server.
+                    </p>
+                    <GitHubButton />
+                    <CursorSim />
+                </div>
+                <img className="triangle" src={'/img/triangle.svg'} />
+            </header>
+            <section className="main-container">
+                {features.map((feature, index) => (
+                    <Feature key={index} {...feature} index={index} />
+                ))}
+                <GitHubButton />
+                <img className="triangle" src={'/img/triangle.svg'} />
+            </section>
+            <Footer />
+        </Layout>
+    )
 }
 
 export default Home
