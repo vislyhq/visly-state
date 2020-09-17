@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Anchor from 'react-scrollable-anchor';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {atomDark as theme} from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { bgState } from '../../../backend/state'
+import { useValue, useMutation } from '@visly/state'
 
 function BackgroundSelect({backgrounds, selected, onSelect}) {
   return (
@@ -45,11 +47,15 @@ function Code({code, background, anchor}) {
   );
 }
 
-function Feature({title, anchor, summary, code, icon, leftAccessory, rightAccessory, initSelected}) {
+function Feature({title, anchor, summary, code, icon, leftAccessory, rightAccessory, index}) {
   const backgrounds = [
     'gradient1.png', 'gradient2.png', 'gradient3.png', 'gradient4.png'
   ]
-  const [selected, setSelected] = useState(initSelected % backgrounds.length);
+
+  const bgIndex = useValue(bgState, s => s.backgrounds[index])
+  const setBgIndex = useMutation(bgState, (s, newIndex) => {
+    s.backgrounds[index] = newIndex
+  })
 
   return (
     <Anchor id={anchor}>
@@ -62,13 +68,13 @@ function Feature({title, anchor, summary, code, icon, leftAccessory, rightAccess
         <div className='background-select-container'>
           <BackgroundSelect
             backgrounds={backgrounds}
-            selected={selected}
-            onSelect={setSelected}
+            selected={bgIndex}
+            onSelect={setBgIndex}
           />
           <Code
             anchor={anchor}
             code={code}
-            background={backgrounds[selected]}/>
+            background={backgrounds[bgIndex]}/>
           {leftAccessory && (
             <div className='feature-left-accessory'>
               <img src={`/img/${leftAccessory}.svg`}/>

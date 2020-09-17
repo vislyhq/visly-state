@@ -1,4 +1,4 @@
-import "../website/src/state";
+import "./state";
 import express from "express";
 import enableWs from "express-ws";
 import { setSyncAdapter, SyncPayloadType } from '@visly/state'
