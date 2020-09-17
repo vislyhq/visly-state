@@ -1,10 +1,13 @@
 import React from 'react'
 import clsx from 'clsx'
+import { configureAnchors } from 'react-scrollable-anchor'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 import Feature from '../components/Feature'
 import CursorSim from '../components/CursorSim';
 import Footer from '../components/Footer'
+
+configureAnchors({offset: -80, scrollDuration: 200, keepLastAnchorHash: true})
 
 const features = [
   {
