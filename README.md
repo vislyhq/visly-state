@@ -1,4 +1,4 @@
-# [Visly State](https://state.visly.app) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vislyhq/visly-state/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/@visly/state.svg?style=flat)](https://www.npmjs.com/package/@visly/state) [![Tests](https://github.com/vislyhq/visly-state/workflows/Test/badge.svg)](https://github.com/vislyhq/visly-state/actions?query=workflow%3ATest) 
+# [Visly State](https://state.visly.app) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vislyhq/visly-state/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@visly/state.svg?style=flat)](https://www.npmjs.com/package/@visly/state) [![Tests](https://github.com/vislyhq/visly-state/workflows/Test/badge.svg)](https://github.com/vislyhq/visly-state/actions?query=workflow%3ATest) 
 
 React state for real-time apps.
 

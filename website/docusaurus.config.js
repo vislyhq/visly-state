@@ -97,12 +97,12 @@ module.exports = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
                     editUrl:
-                        'https://github.com/vislyhq/visly-state/edit/master/website/',
+                        'https://github.com/vislyhq/visly-state/edit/main/website/',
                 },
                 blog: {
                     showReadingTime: true,
                     editUrl:
-                        'https://github.com/vislyhq/visly-state/edit/master/website/blog/',
+                        'https://github.com/vislyhq/visly-state/edit/main/website/blog/',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.scss'),
