@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@vercel/ncc@^0.24.1":
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/@vercel/ncc/-/ncc-0.24.1.tgz#3ea2932c85ba87f4de6fe550d60e1bf5c005985e"
+  integrity sha512-r9m7brz2hNmq5TF3sxrK4qR/FhXn44XIMglQUir4sT7Sh5GOaYXlMYikHFwJStf8rmQGTlvOoBXt4yHVonRG8A==
+
 "@visly/state@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@visly/state/-/state-1.0.13.tgz#23bba747ecf1489aea2def44782bfdf2a74db89e"

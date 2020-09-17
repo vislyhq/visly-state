@@ -8,11 +8,12 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@vercel/ncc": "^0.24.1",
     "@visly/state": "^1.0.13",
     "express": "^4.17.1",
     "express-ws": "^4.0.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "ncc run index.js"
   }
 }
