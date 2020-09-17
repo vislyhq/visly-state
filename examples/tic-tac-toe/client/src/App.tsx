@@ -62,6 +62,9 @@ const mutations = {
       state.winner = checkWinner(state.board)
     }
   },
+  reset: (state: State) => {
+    state = initialState
+  }
 }
 
 interface SquareProps {
@@ -111,7 +114,7 @@ function Game() {
   const currentPlayer = useValue(gameState, s => s.currentPlayer)
   const winner = useValue(gameState, s => s.winner)
 
-  const reset = useMutation(gameState, s => s = initialState)
+  const reset = useMutation(gameState, mutations.reset)
 
   return (
     <div>
@@ -122,7 +125,7 @@ function Game() {
         <div>{winner} won!</div>
       )}
       <Board disabled={!!winner}/>
-      <div className='button' onClick={reset}>Reset</div>
+      <div className='button' onClick={() => reset()}>Reset</div>
     </div>
   )
 }
