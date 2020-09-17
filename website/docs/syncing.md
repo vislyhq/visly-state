@@ -20,21 +20,22 @@ export const appState = syncedState('appstate', { items: [] })
 We'll also add the following configuration code at the root of our application - `index.js` if using create-react-app.
 
 ```tsx
-import { setSyncAdapter, WSSSyncAdapter } from '@visly/state'
+import { setSyncAdapter, WSSyncAdapter } from '@visly/state'
 
-setSyncAdapter(WSSSyncAdapter('wss://api.example.com'))
+setSyncAdapter(WSSyncAdapter('wss://api.example.com'))
 ```
 
 This is all you'll have to do on the client side to get things working. Mutations will automatically sync to your backend and changes coming in from other clients will automatically be applied to your state and update your components. For your own applications, you'll want to update the websocket endpoint used and most likely point it at localhost for development.
 
 ## On your backend
 
-For this, we're going to assume you are building a Node server using Express. You'll need to install the following Node libraries if you haven't already: `express`, `express-ws`. This example sets up a sync adapter for the server that listens to websocket connections from the client and applies them to the correct state object on the server and then broadcasts that message out to all connected clients. In a real world application you would want to look at the sender of the data and only transmit the updates to connections that should have access to the data being transmitted.
+For this, we're going to assume you are building a Node server using Express. You'll need to install the following Node libraries if you haven't already: `express`, `express-ws`, `ws`. This example sets up a sync adapter for the server that listens to websocket connections from the client and applies them to the correct state object on the server and then broadcasts that message out to all connected clients. In a real world application you would want to look at the sender of the data and only transmit the updates to connections that should have access to the data being transmitted.
 
 ```tsx
-import '../shared/state'
+import { appState } from '../shared/state'
 import express from "express";
 import enableWs from "express-ws";
+import WebSocket from "ws";
 import { setSyncAdapter, SyncPayload, SyncPayloadType } from '@visly/state'
 
 const app = enableWs(express()).app;
@@ -44,6 +45,14 @@ setSyncAdapter((applyPatches, setState) => {
   
   app.ws("/", (ws) => {
     conections.add(ws);
+
+    ws.send(
+      JSON.stringify({
+          type: SyncPayloadType.FullSync,
+          data: appState.get(),
+          key: appState.syncKey,
+      })
+    )
 
     ws.on("message", (msg) => {
       for (const connection of conections) {

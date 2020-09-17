@@ -1,4 +1,4 @@
-import { state } from '@visly/state'
+import { syncedState } from '@visly/state'
 
 export enum Player {
     X = 'X',
@@ -27,7 +27,7 @@ const initialState: State = {
     ties: 0,
 }
 
-export const gameState = state<State>(initialState)
+export const gameState = syncedState<State>('gameState', initialState)
 
 const checkWinner = (board: Board): null | false | Player => {
     // check horizontally
