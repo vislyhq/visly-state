@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@visly/state": "^1.0.13",
+    "@types/express": "^4.17.8",
+    "@types/express-ws": "^3.0.0",
+    "@types/ws": "^7.2.6",
+    "@visly/state": "^1.0.14",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "ts-node": "^9.0.0",
+    "ws": "^7.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -19,11 +27,14 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:client": "react-scripts start",
+    "start:server": "ts-node --project tsconfig.server.json server.ts  ",
+    "start": "concurrently \"yarn start:client\" \"yarn start:server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": "react-app"
   },

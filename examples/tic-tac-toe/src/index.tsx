@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { setSyncAdapter, WSSyncAdapter } from '@visly/state'
+
+setSyncAdapter(WSSyncAdapter('ws://localhost:8080'))
 
 ReactDOM.render(
     <React.StrictMode>

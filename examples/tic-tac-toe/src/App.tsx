@@ -10,7 +10,6 @@ import './App.css'
 
 function App() {
     // should display this...
-    const currentPlayer = useValue(gameState, s => s.currentPlayer)
     const winner = useValue(gameState, s => s.winner)
     const noughtScore = useValue(gameState, s => s.noughtScore)
     const crossScore = useValue(gameState, s => s.crossScore)
