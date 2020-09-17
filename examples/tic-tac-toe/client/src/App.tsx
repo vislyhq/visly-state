@@ -1,9 +1,9 @@
 import React from 'react'
 import { useValue, useMutation } from '@visly/state'
-import { Board } from './Board';
 import { gameState, mutations } from './state';
-import './App.css'
+import { Board } from './Board';
 import { Score } from './Score';
+import './App.css'
 
 function App() {
   const currentPlayer = useValue(gameState, s => s.currentPlayer)
