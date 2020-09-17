@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import React, {useState} from 'react';
+import Anchor from 'react-scrollable-anchor';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import {atomDark as theme} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 function BackgroundSelect({backgrounds, selected, onSelect}) {
   return (
@@ -16,7 +17,7 @@ function BackgroundSelect({backgrounds, selected, onSelect}) {
   )
 }
 
-function Code({code, background}) {
+function Code({code, background, anchor}) {
   const style = {
     borderRadius: 8,
     padding: 10,
@@ -38,44 +39,50 @@ function Code({code, background}) {
           {code}
         </SyntaxHighlighter>
       </div>
+      <div className='new-tab'><a href={`#${anchor}`} target='_blank' rel='noopener noreferrer'>Open in new tab</a>
+      </div>
     </div>
   );
 }
 
-function Feature({title, summary, code, icon, leftAccessory, rightAccessory, initSelected}) {
+function Feature({title, anchor, summary, code, icon, leftAccessory, rightAccessory, initSelected}) {
   const backgrounds = [
     'gradient1.png', 'gradient2.png', 'gradient3.png', 'gradient4.png'
   ]
   const [selected, setSelected] = useState(initSelected % backgrounds.length);
 
   return (
-    <div className='feature'>
-      <div className='feature-summary'>
-        <img className='feature-icon' src={`/img/${icon}.svg`} />
-        <h1>{title}</h1>
-        <p>{summary}</p>
+    <Anchor id={anchor}>
+      <div className='feature'>
+        <div className='feature-summary'>
+          <img className='feature-icon' src={`/img/${icon}.svg`}/>
+          <h1>{title}</h1>
+          <p>{summary}</p>
+        </div>
+        <div className='background-select-container'>
+          <BackgroundSelect
+            backgrounds={backgrounds}
+            selected={selected}
+            onSelect={setSelected}
+          />
+          <Code
+            anchor={anchor}
+            code={code}
+            background={backgrounds[selected]}/>
+          {leftAccessory && (
+            <div className='feature-left-accessory'>
+              <img src={`/img/${leftAccessory}.svg`}/>
+            </div>
+          )}
+          {rightAccessory && (
+            <div className='feature-right-accessory'>
+              <img src={`/img/${rightAccessory}.svg`}/>
+            </div>
+          )}
+        </div>
       </div>
-      <div className='background-select-container'>
-        <BackgroundSelect
-          backgrounds={backgrounds}
-          selected={selected}
-          onSelect={setSelected}/>
-        <Code 
-          code={code}
-          background={backgrounds[selected]}/>
-        {leftAccessory && (
-          <div className='feature-left-accessory'>
-            <img src={`/img/${leftAccessory}.svg`} />
-          </div>
-        )}
-        {rightAccessory && (
-          <div className='feature-right-accessory'>
-            <img src={`/img/${rightAccessory}.svg`} />
-          </div>
-        )}
-      </div>
-    </div>
+    </Anchor>
   )
 }
-  
+
 export default Feature;

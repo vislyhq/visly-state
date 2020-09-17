@@ -19,6 +19,7 @@
     "docusaurus-plugin-sass": "^0.1.10",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-scrollable-anchor": "^0.6.1",
     "react-syntax-highlighter": "^13.5.3"
   },
   "browserslist": {
