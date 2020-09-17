@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "websocket server for visly state website",
+  "main": "index.js",
+  "repository": "https://github.com/vislyhq/visly-state",
+  "author": "Visly inc.",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@visly/state": "^1.0.13",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0"
+  }
+}
