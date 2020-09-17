@@ -76,3 +76,22 @@ body {
   text-align: center;
   font-size: 80px;
 }
+
+.made-by {
+  width: 100%;
+  background: #222222;
+  padding: 40px 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.made-by-p {
+  padding: 0 10px;
+  font-family: 'Archivo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 28px;
+}
