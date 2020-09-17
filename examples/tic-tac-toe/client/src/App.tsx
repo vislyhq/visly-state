@@ -1,9 +1,9 @@
 import React from 'react'
 import { useValue, useMutation } from '@visly/state'
 import { Board } from './Board';
-import { Score } from './Score';
 import { gameState, mutations } from './state';
 import './App.css'
+import { Score } from './Score';
 
 function App() {
   const currentPlayer = useValue(gameState, s => s.currentPlayer)
@@ -28,10 +28,10 @@ function App() {
       <Board disabled={!!winner}/>
       <div className='button' onClick={reset}>Reset</div>
 
-      <div className='scores'>
-        <Score title='PLAYER 1' score={noughtScore}/>
+      <div className='scores-row'>
+        <Score title='PLAYER 1' score={crossScore} addClass='cross'/>
         <Score title='TIE GAMES' score={ties}/>
-        <Score title='PLAYER 2' score={crossScore}/>
+        <Score title='PLAYER 2' score={noughtScore} addClass='nought'/>
       </div>
     </div>
   )

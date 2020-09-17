@@ -41,3 +41,38 @@ body {
 .square:last-child {
   border-right: none;
 }
+
+.scores-row {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cross:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/cross-icon.svg')
+}
+
+.nought:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/nought-icon.svg')
+}
+
+.score-title {
+  font-size: 20px;
+}
+
+.score-number {
+  text-align: center;
+  font-size: 80px;
+}
