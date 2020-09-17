@@ -1,11 +1,17 @@
+body {
+  background-color: #202020;
+}
+
 .board {
+  background-color: white;
   width: 468px;
   height: 468px;
   border: 1px solid black;
   border-radius: 48px;
   padding: 40px;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 40px;
+  box-shadow: 8px 8px 0 #71e6ed;
 }
 
 .row {
