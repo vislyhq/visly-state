@@ -1,5 +1,7 @@
 import React from 'react'
 import { state, useValue, useMutation } from '@visly/state'
+import nought from './assets/nought.svg'
+import cross from './assets/cross.svg'
 import './App.css'
 
 enum Player { 
@@ -23,7 +25,9 @@ const mutations = {
 }
 
 function Square({ player, onClick}: { player: (Player | null), onClick: () => void}) {
-  return <div className='square' onClick={onClick}>{player ?? ''}</div>
+  return <div className={`square`} onClick={onClick}>
+    {player && <img src={Player.X ? cross : nought}/>}
+  </div>
 }
 
 function Board() {
@@ -33,7 +37,7 @@ function Board() {
   const board = useValue(gameState, s => s.board)
   const currentPlayer = Player.X
 
-  return <div>
+  return <div className='board'>
     <div className='row'>
       <Square player={board[0]} onClick={() => makeMove(0, currentPlayer)}></Square>
       <Square player={board[1]} onClick={() => makeMove(1, currentPlayer)}></Square>

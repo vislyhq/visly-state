@@ -1,9 +1,36 @@
-.square {
+.board {
+  width: 468px;
+  height: 468px;
   border: 1px solid black;
-  width: 50px;
-  height: 50px;
+  border-radius: 48px;
+  padding: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .row {
   display: flex;
+  border-bottom: 2px solid black;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.square {
+  height: 156px;
+  width: 156px;
+  border-right: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square > img {
+  width: 70px;
+  height: 70px;
+}
+
+.square:last-child {
+  border-right: none;
 }
