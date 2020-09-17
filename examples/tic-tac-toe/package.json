@@ -31,7 +31,6 @@
     "start:server": "ts-node --project tsconfig.server.json server.ts  ",
     "start": "concurrently \"yarn start:client\" \"yarn start:server\"",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:8080",
