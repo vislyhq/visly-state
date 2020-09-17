@@ -39,7 +39,7 @@ function Code({code, background, anchor}) {
           {code}
         </SyntaxHighlighter>
       </div>
-      <div className='new-tab'><a href={`#${anchor}`} target='_blank' rel='noopener noreferrer'>Open in new tab</a>
+      <div className='new-tab'><a href={`#${anchor}`} target='_blank' rel='noopener noreferrer'>Click here to open a new tab</a>
       </div>
     </div>
   );
