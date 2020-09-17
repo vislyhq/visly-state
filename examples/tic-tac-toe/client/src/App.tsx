@@ -1,67 +1,49 @@
 import React from 'react'
-import { state, useValue, useMutation } from '@visly/state'
+import { useValue, useMutation } from '@visly/state'
+import { gameState, mutations } from './state';
+import { Board } from './Board';
+import { Score } from './Score';
+import arrow from './assets/arrowRight.svg';
+import logo from './assets/logo.svg';
+import logoBig from './assets/logoDark.svg';
 import './App.css'
 
-enum Player { 
-  X = 'X',
-  O = 'O',
-}
-
-const emptyBoard = new Array(9).fill(null)
-const gameState = state({
-  board: emptyBoard,
-  currentPlayer: Player.O,
-})
-
-const mutations = {
-  playSquare: (state: any, index: number, player: Player) => {
-      state.board[index] = player
-  },
-  alternatePlayer: (state: any) => {
-    state.currentPlayer = state.currentPlayer === Player.X ? Player.O : Player.X
-  }
-}
-
-function Square({ player, onClick}: { player: (Player | null), onClick: () => void}) {
-  return <div className='square' onClick={onClick}>{player ?? ''}</div>
-}
-
-function Board() {
-
-  const makeMove = useMutation(gameState, mutations.playSquare)
-
-  const board = useValue(gameState, s => s.board)
-  const currentPlayer = Player.X
-
-  return <div>
-    <div className='row'>
-      <Square player={board[0]} onClick={() => makeMove(0, currentPlayer)}></Square>
-      <Square player={board[1]} onClick={() => makeMove(1, currentPlayer)}></Square>
-      <Square player={board[2]} onClick={() => makeMove(2, currentPlayer)}></Square>
-    </div>
-    <div className='row'>
-      <Square player={board[3]} onClick={() => makeMove(3, currentPlayer)}></Square>
-      <Square player={board[4]} onClick={() => makeMove(4, currentPlayer)}></Square>
-      <Square player={board[5]} onClick={() => makeMove(5, currentPlayer)}></Square>
-    </div>
-    <div className='row'>
-      <Square player={board[6]} onClick={() => makeMove(6, currentPlayer)}></Square>
-      <Square player={board[7]} onClick={() => makeMove(7, currentPlayer)}></Square>
-      <Square player={board[8]} onClick={() => makeMove(8, currentPlayer)}></Square>
-    </div>
-  </div>
-}
-
-function Game() {
-  return <div>
-    <Board/>
-  </div>
-}
-
-
 function App() {
+  // should display this...
+  const currentPlayer = useValue(gameState, s => s.currentPlayer)
+  const winner = useValue(gameState, s => s.winner)
+  const noughtScore = useValue(gameState, s => s.noughtScore)
+  const crossScore = useValue(gameState, s => s.crossScore)
+  const ties = useValue(gameState, s => s.ties)
+
+  const reset = useMutation(gameState, mutations.reset)
+
   return (
-    <Game></Game>
+    <div className='root'>
+      <div className='header'>
+        <img src={logo} alt='Visly' />
+        <div className='button reset' onClick={reset}>Reset</div>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
+          <div className='button new-tab'>
+            Open a new tab <img src={arrow} alt='new tab' />
+          </div>
+        </a>
+      </div>
+
+      <Board disabled={!!winner}/>
+
+      <div className='scores-row'>
+        <Score title='PLAYER 1' score={crossScore} addClass='cross'/>
+        <Score title='TIE GAMES' score={ties}/>
+        <Score title='PLAYER 2' score={noughtScore} addClass='nought'/>
+      </div>
+      <div className='made-by'>
+        <span className='made-by-p'>Made by</span>
+        <a href='https://visly.app/' target='_blank' rel='noopener noreferrer'>
+          <img src={logoBig} alt='Visly' style={{ height: '30px', marginBottom: '-1px'}} />
+        </a>
+      </div>
+    </div>
   )
 }
 

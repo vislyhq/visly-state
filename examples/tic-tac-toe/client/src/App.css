@@ -1,9 +1,150 @@
-.square {
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+body {
+  background-color: #202020;
+  color: white;
+}
+
+.root {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.reset {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.new-tab {
+  position: absolute;
+  top: 0;
+  right: 50px;
+}
+
+.board {
+  background-color: white;
+  width: 468px;
+  height: 468px;
   border: 1px solid black;
-  width: 50px;
-  height: 50px;
+  border-radius: 48px;
+  padding: 40px;
+  margin: auto;
+  margin-top: 40px;
+  box-shadow: 8px 8px 0 #71e6ed;
 }
 
 .row {
   display: flex;
+  border-bottom: 2px solid black;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.square {
+  height: 156px;
+  width: 156px;
+  border-right: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square > img {
+  width: 70px;
+  height: 70px;
+}
+
+.square:last-child {
+  border-right: none;
+}
+
+.scores-row {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cross:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/cross-icon.svg')
+}
+
+.nought:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/nought-icon.svg')
+}
+
+.score-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 20px;
+}
+
+.score-number {
+  text-align: center;
+  font-size: 80px;
+}
+
+.button {
+  font-family: 'Archivo Black', sans-serif;
+  padding: 10px 20px;
+  font-size: 20px;
+  align-self: center;
+  z-index: 100;
+  letter-spacing: 0px;
+
+  color: #222222 !important;
+
+  background: #FFFFFF;
+  border: 1px solid #222222 !important;
+  border-radius: 99px;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 0px #71E6ED;
+}
+
+button:hover {
+  text-decoration: none;
+  background: #ddd;
+}
+
+.made-by {
+  width: 100%;
+  padding: 40px 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.made-by-p {
+  padding: 0 10px;
+  font-family: 'Archivo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 28px;
 }
