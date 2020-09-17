@@ -516,7 +516,7 @@ p {
 
 .feature-left-accessory {
   position: absolute;
-  left: -200px;
+  left: -180px;
   top: -100px;
 }
 
@@ -527,7 +527,7 @@ p {
 }
 
 .feature-left-accessory, .feature-right-accessory {
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 1270px) {
     display: none;
   }
 }

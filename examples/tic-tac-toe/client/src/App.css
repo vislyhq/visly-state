@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 
 body {
   background-color: #202020;
@@ -76,13 +77,15 @@ body {
 .scores-row {
   display: flex;
   justify-content: center;
+  margin-top: 56px;
 }
 
 .score {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  margin-left: 48px;
+  margin-right: 48px;
 }
 
 .cross:before {
@@ -105,6 +108,7 @@ body {
 }
 
 .score-number {
+  font-family: 'Archivo', sans-serif;
   text-align: center;
   font-size: 80px;
 }
