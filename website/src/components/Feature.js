@@ -3,7 +3,7 @@ import Anchor from 'react-scrollable-anchor';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {atomDark as theme} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { bgState } from '../../../backend/state'
-import { useValue, useMutation } from '@visly/state/dist/browser'
+import { useValue, useMutation } from '@visly/state'
 
 function BackgroundSelect({backgrounds, selected, onSelect}) {
   return (
@@ -13,7 +13,6 @@ function BackgroundSelect({backgrounds, selected, onSelect}) {
           const className = index === selected ? 'select-circle selected' : 'select-circle';
           return <div key={index} className={className} onClick={() => onSelect(index)}></div>
         })
-
       }
     </div>
   )

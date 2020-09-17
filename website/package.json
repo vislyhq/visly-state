@@ -16,6 +16,7 @@
     "@mdx-js/react": "^1.5.8",
     "@visly/core": "^1.0.5",
     "@visly/state": "^1.0.13",
+    "babel-plugin-module-resolver": "^4.0.0",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.1.10",
     "react": "^16.8.4",

@@ -6,8 +6,14 @@ import styles from './styles.module.css'
 import Feature from '../components/Feature'
 import CursorSim from '../components/CursorSim';
 import Footer from '../components/Footer'
+import { setSyncAdapter, WSSyncAdapter } from '@visly/state'
 
 configureAnchors({offset: -80, scrollDuration: 200, keepLastAnchorHash: true})
+
+// Check that we are running on client-side
+if (window.document) {
+  setSyncAdapter(WSSyncAdapter('wss://visly-state-website-backend.herokuapp.com'))
+}
 
 const features = [
   {

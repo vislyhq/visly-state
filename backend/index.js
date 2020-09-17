@@ -1,4 +1,4 @@
-import "./state";
+import { bgState } from "./state";
 import express from "express";
 import enableWs from "express-ws";
 import { setSyncAdapter, SyncPayloadType } from '@visly/state'
@@ -11,9 +11,13 @@ setSyncAdapter((applyPatches, setState) => {
   app.ws("/", (ws) => {
     conections.add(ws);
 
+    ws.send(
+      JSON.stringify({ type: SyncPayloadType.FullSync, data: bgState.get(), bgState.syncKey })
+    )
+
     ws.on("message", (msg) => {
       for (const connection of conections) {
-        if (connection !== ws && connection.readyState === WebSocket.OPEN) {
+        if (connection !== ws && connection.readyState === 1) {
           connection.send(msg);
         }
       }
