@@ -3,9 +3,9 @@ import { useValue, useMutation } from '@visly/state'
 import { gameState, mutations } from './state'
 import { Board } from './Board'
 import { Score } from './Score'
+import { Footer } from './Footer'
 import arrow from './assets/arrowRight.svg'
 import logo from './assets/logo.svg'
-import logoBig from './assets/logoDark.svg'
 import './App.css'
 
 function App() {
@@ -38,20 +38,7 @@ function App() {
                 <Score title="TIE GAMES" score={ties} />
                 <Score title="PLAYER 2" score={noughtScore} addClass="nought" />
             </div>
-            <div className="made-by">
-                <span className="made-by-p">Made by</span>
-                <a
-                    href="https://visly.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        src={logoBig}
-                        alt="Visly"
-                        style={{ height: '30px', marginBottom: '-1px' }}
-                    />
-                </a>
-            </div>
+            <Footer/>
         </div>
     )
 }
