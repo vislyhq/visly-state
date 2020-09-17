@@ -15,6 +15,9 @@ interface State {
   board: Board
   currentPlayer: Player
   winner: null | Player
+  noughtScore: number,
+  crossScore: number,
+  ties: number
 }
 
 const emptyBoard: Board = new Array(9).fill(null)
@@ -23,6 +26,9 @@ const initialState: State = {
   board: emptyBoard,
   currentPlayer: Player.O,
   winner: null,
+  noughtScore: 0,
+  crossScore: 0,
+  ties: 0
 }
 
 const gameState = state<State>(initialState)
@@ -60,10 +66,18 @@ const mutations = {
       state.board[index] = state.currentPlayer
       state.currentPlayer = state.currentPlayer === Player.X ? Player.O : Player.X
       state.winner = checkWinner(state.board)
+
+      if (state.winner === Player.O) {
+        state.noughtScore++
+      } else if (state.winner === Player.X) {
+        state.crossScore++
+      }
     }
   },
   reset: (state: State) => {
-    state = initialState
+    state.board = initialState.board
+    state.currentPlayer = initialState.currentPlayer
+    state.winner = initialState.winner
   }
 }
 
@@ -110,9 +124,19 @@ function Board({disabled}: BoardProps) {
   )
 }
 
+function Score({title, score}: {title: string, score: number}) {
+  return <div className='score'>
+      <div className='score-title'>{title}</div>
+      <div className='score-number'>{score}</div>
+  </div>
+}
+
 function Game() {
   const currentPlayer = useValue(gameState, s => s.currentPlayer)
   const winner = useValue(gameState, s => s.winner)
+  const noughtScore = useValue(gameState, s => s.noughtScore)
+  const crossScore = useValue(gameState, s => s.crossScore)
+  const ties = useValue(gameState, s => s.ties)
 
   const reset = useMutation(gameState, mutations.reset)
 
@@ -125,7 +149,13 @@ function Game() {
         <div>{winner} won!</div>
       )}
       <Board disabled={!!winner}/>
-      <div className='button' onClick={() => reset()}>Reset</div>
+      <div className='button' onClick={reset}>Reset</div>
+
+      <div className='scores'>
+        <Score title='PLAYER 1' score={noughtScore}/>
+        <Score title='TIE GAMES' score={ties}/>
+        <Score title='PLAYER 2' score={crossScore}/>
+      </div>
     </div>
   )
 }
