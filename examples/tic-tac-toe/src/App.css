@@ -92,19 +92,25 @@ body {
   content: '';
   width: 24px;
   height: 24px;
-  background-image: url('assets/cross-icon.svg')
+  background-image: url('assets/cross-icon.svg');
+  margin-right: 8px;
 }
 
 .nought:before {
   content: '';
   width: 24px;
   height: 24px;
-  background-image: url('assets/nought-icon.svg')
+  background-image: url('assets/nought-icon.svg');
+  margin-right: 6px;
 }
 
 .score-title {
   font-family: 'Archivo Black', sans-serif;
   font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .score-number {
@@ -128,6 +134,7 @@ body {
   border-radius: 99px;
   box-sizing: border-box;
   box-shadow: 2px 3px 0px #71E6ED;
+  cursor: pointer;
 }
 
 button:hover {
