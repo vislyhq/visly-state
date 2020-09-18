@@ -16,6 +16,10 @@ module.exports = {
         },
         metadatas: [
             { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: 'React state for real time apps' },
+            { name: 'twitter:description', content: 'A React state management library that extends to your server' },
+            { name: 'twitter:image', content: '/img/share-banner.png' },
+            { name: 'twitter:site', content: '@vislyhq' },
             { name: 'og:image', content: '/img/share-banner.png' },
         ],
         navbar: {
