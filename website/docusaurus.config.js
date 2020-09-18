@@ -18,9 +18,9 @@ module.exports = {
             { name: 'twitter:card', content: 'summary_large_image' },
             { name: 'twitter:title', content: 'React state for real time apps' },
             { name: 'twitter:description', content: 'A React state management library that extends to your server' },
-            { name: 'twitter:image', content: 'img/share-banner.png' },
+            { name: 'twitter:image', content: 'https://state.visly.app/img/share-banner.png' },
             { name: 'twitter:site', content: '@vislyhq' },
-            { name: 'og:image', content: 'img/share-banner.png' },
+            { name: 'og:image', content: 'https://state.visly.app/img/share-banner.png' },
         ],
         navbar: {
             title: 'Visly State',
