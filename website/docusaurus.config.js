@@ -5,11 +5,6 @@ module.exports = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/logo-black.svg',
-    image: 'img/share-banner.png',
-    twitter: 'true',
-    twitterUsername: 'vislyhq',
-    twitterImage: 'img/share-banner.png',
-    ogImage: 'img/share-banner.png',
     organizationName: 'Visly',
     projectName: 'visly-state',
     themeConfig: {
@@ -19,6 +14,10 @@ module.exports = {
         colorMode: {
             disableSwitch: true,
         },
+        metadatas: [
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'og:image', content: 'img/share-banner.png' },
+        ],
         navbar: {
             title: 'Visly State',
             logo: {
