@@ -1,10 +1,15 @@
 module.exports = {
     title: 'React state for real time apps',
-    tagline: 'The tagline of my site',
-    url: 'https://your-docusaurus-test-site.com',
+    tagline: 'A React state management library that extends to your server',
+    url: 'https://visly.state.app',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/logo-black.svg',
+    image: 'img/share-banner.png',
+    twitter: 'true',
+    twitterUsername: 'vislyhq',
+    twitterImage: 'img/share-banner.png',
+    ogImage: 'img/share-banner.png',
     organizationName: 'Visly',
     projectName: 'visly-state',
     themeConfig: {
