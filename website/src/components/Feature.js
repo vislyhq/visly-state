@@ -60,16 +60,17 @@ function Code({ code, background, anchor }) {
     )
 }
 
-function Feature({
-    title,
-    anchor,
-    summary,
-    code,
-    icon,
-    leftAccessory,
-    rightAccessory,
-    index,
-}) {
+function Feature(props) {
+    const {
+        title,
+        anchor,
+        summary,
+        code,
+        icon,
+        leftAccessory,
+        rightAccessory,
+        index,
+    } = props
     const backgrounds = [
         'gradient1.png',
         'gradient2.png',

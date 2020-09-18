@@ -70,7 +70,7 @@ function pushHistory(history: History, change: Change): History {
 
 function undoHistory(
     history: History,
-    apply: (changes: Patch[]) => void
+    apply: (changes: Patch[]) => void,
 ): History {
     return produce(history, history => {
         if (history.position === 0) {
@@ -85,7 +85,7 @@ function undoHistory(
 
 function redoHistory(
     history: History,
-    apply: (changes: Patch[]) => void
+    apply: (changes: Patch[]) => void,
 ): History {
     return produce(history, history => {
         if (history.position === history.changelist.length) {
@@ -118,7 +118,7 @@ function compressHistory(prev: History, curr: History): History {
             apply: [...acc.apply, ...curr.apply],
             revert: [...curr.revert, ...acc.revert],
         }),
-        { apply: [], revert: [] }
+        { apply: [], revert: [] },
     )
 
     return {
@@ -190,7 +190,7 @@ export class State<T> {
             (t: T) => {
                 const v = updater(t)
                 returnValue = isDraft(v) ? current(v) : v
-            }
+            },
         )
 
         this._value = value
@@ -425,10 +425,11 @@ type PatchApplicator = (key: string, patches: Patch[]) => void
 export type SyncAdapter = (
     applyPatches: (key: string, t: Patch[]) => void,
     setState: (key: string, t: unknown) => void,
-    syncedStates: Map<string, State<unknown>>
+    syncedStates: Map<string, State<unknown>>,
 ) => PatchApplicator
 
 let broadcastPatches: PatchApplicator | undefined
+
 export function setSyncAdapter(adapter: SyncAdapter | null) {
     broadcastPatches = adapter?.(
         (key: string, patches: Patch[]) => {
@@ -437,7 +438,7 @@ export function setSyncAdapter(adapter: SyncAdapter | null) {
         (key: string, t: unknown) => {
             syncedStates.get(key)?._setState(t)
         },
-        syncedStates
+        syncedStates,
     )
 }
 
@@ -466,7 +467,7 @@ export class CombinedState<T extends StateObject> {
                 acc[key as any] = store.get()
                 return acc
             },
-            {} as T
+            {} as T,
         )
 
         const sel = selector ?? identity
@@ -498,7 +499,7 @@ export class CombinedState<T extends StateObject> {
             (t: T) => {
                 const v = updater(t)
                 returnValue = isDraft(v) ? current(v) : v
-            }
+            },
         )
 
         this.transaction(() => {
@@ -511,7 +512,7 @@ export class CombinedState<T extends StateObject> {
 
                 store._applyPatchesWithHistory(
                     filter(patches),
-                    filter(reversePatches)
+                    filter(reversePatches),
                 )
             }
         })
@@ -601,14 +602,14 @@ export function identity<T>(t: T) {
 export type AnyState<T> = State<T> | DerivedState<any, T> | CombinedState<T>
 
 export function combinedState<T extends Record<string, unknown>>(
-    states: { [K in keyof T]: State<T[K]> }
+    states: { [K in keyof T]: State<T[K]> },
 ) {
     return new CombinedState(states)
 }
 
 export function derivedState<T, U>(
     state: AnyState<T>,
-    selector: StateSelector<T, U>
+    selector: StateSelector<T, U>,
 ): DerivedState<T, U> {
     return new DerivedState(state, selector)
 }

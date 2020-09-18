@@ -98,9 +98,7 @@ const Cursor = ({ icon, x, y, duration, w, h, display }) => {
             style={{
                 display,
                 transition: `transform ${duration}ms ease-in-out`,
-                transform: `translate(${Math.floor(x * w)}px, ${Math.floor(
-                    y * h
-                )}px)`,
+                transform: `translate(${Math.floor(x * w)}px, ${Math.floor(y * h)}px)`,
             }}
         />
     )

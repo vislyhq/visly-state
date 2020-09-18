@@ -38,7 +38,7 @@ function App() {
                 <Score title="TIE GAMES" score={ties} />
                 <Score title="PLAYER 2" score={noughtScore} addClass="nought" />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

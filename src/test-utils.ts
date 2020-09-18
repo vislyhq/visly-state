@@ -9,7 +9,7 @@
 // from a mutation function taking a full store. Most mutations operate on a subset
 // of the store and this therefor makes mocking the store much easier.
 export function partialMutation<T, Args extends ReadonlyArray<unknown>>(
-    mut: (t: T, ...args: Args) => void
+    mut: (t: T, ...args: Args) => void,
 ) {
     return (t: Partial<T>, ...args: Args) => {
         mut(t as T, ...args)

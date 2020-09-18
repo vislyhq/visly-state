@@ -13,7 +13,7 @@ configureAnchors({ offset: -80, scrollDuration: 200, keepLastAnchorHash: true })
 // Check that we are running on client-side
 if (typeof window !== 'undefined') {
     setSyncAdapter(
-        WSSyncAdapter('wss://visly-state-website-backend.herokuapp.com')
+        WSSyncAdapter('wss://visly-state-website-backend.herokuapp.com'),
     )
 }
 

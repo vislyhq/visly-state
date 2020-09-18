@@ -34,12 +34,12 @@ export function useVislyState<T>(state: State<T> | CombinedState<T>) {
 export function useValue<T>(state: AnyState<T>): T
 export function useValue<T, U>(
     state: AnyState<T>,
-    selector: StateSelector<T, U>
+    selector: StateSelector<T, U>,
 ): U
 
 export function useValue<T extends StateObject, U>(
     state: AnyState<T>,
-    selector: StateSelector<T, U> = identity as typeof selector
+    selector: StateSelector<T, U> = identity as typeof selector,
 ) {
     const forceUpdate = useReducer(c => c + 1, 0)[1]
     const subscriberRef = useRef<Subscriber<T, U>>()
@@ -82,7 +82,7 @@ export function useMutation<
 >(
     state: State<T>,
     producer?: (t: T, ...args: Args) => R,
-    deps?: Array<any>
+    deps?: Array<any>,
 ): (...args: Args) => R
 
 export function useMutation<
@@ -92,13 +92,13 @@ export function useMutation<
 >(
     state: CombinedState<T>,
     producer?: (t: T, ...args: Args) => R,
-    deps?: Array<any>
+    deps?: Array<any>,
 ): (...args: Args) => R
 
 export function useMutation(
     state: State<any> | CombinedState<any>,
     producer: (t: any, ...args: any) => void = defaultProducer,
-    deps?: Array<any>
+    deps?: Array<any>,
 ) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const f = useCallback(producer, deps ?? [producer])
@@ -110,13 +110,13 @@ export function useMutation(
             })
             return result
         },
-        [state, f]
+        [state, f],
     )
 }
 
 export function transaction(
     state: State<any> | CombinedState<any>,
-    perform: () => void
+    perform: () => void,
 ) {
     batchUpdates(() => state.transaction(perform))
 }
@@ -142,7 +142,7 @@ class Subscriber<T extends StateObject, R> {
     constructor(
         state: AnyState<T>,
         listener: StateListener<R>,
-        selector: StateSelector<T, R>
+        selector: StateSelector<T, R>,
     ) {
         this.state = state
         this.currentValue = selector(state.get())

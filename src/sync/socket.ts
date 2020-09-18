@@ -19,7 +19,7 @@ class SyncSocket<Data> {
         endpoint: string,
         onPatch: (key: string, d: Patch[]) => void,
         onFullSync: (key: string, d: Data) => void,
-        onError: (e: Error) => void = console.error
+        onError: (e: Error) => void = console.error,
     ) {
         this.ws = new ReconnectingWebSocket(endpoint, undefined, {
             maxReconnectionDelay: 100,
@@ -53,7 +53,7 @@ class SyncSocket<Data> {
 
     sendPatches(key: string, data: Patch[]) {
         this.ws.send(
-            JSON.stringify({ type: SyncPayloadType.Patches, data, key })
+            JSON.stringify({ type: SyncPayloadType.Patches, data, key }),
         )
     }
 }

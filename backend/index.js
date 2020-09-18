@@ -16,7 +16,7 @@ setSyncAdapter((applyPatches, setState) => {
                 type: SyncPayloadType.FullSync,
                 data: bgState.get(),
                 key: bgState.syncKey,
-            })
+            }),
         )
 
         ws.on('message', msg => {
@@ -51,7 +51,7 @@ setSyncAdapter((applyPatches, setState) => {
                         type: SyncPayloadType.Patches,
                         data: patches,
                         key,
-                    })
+                    }),
                 )
             }
         })

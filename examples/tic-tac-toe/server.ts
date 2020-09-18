@@ -1,66 +1,66 @@
-import path from 'path';
-import express from "express";
-import enableWs from "express-ws";
-import WebSocket from "ws";
+import path from 'path'
+import express from 'express'
+import enableWs from 'express-ws'
+import WebSocket from 'ws'
 import { setSyncAdapter, SyncPayload, SyncPayloadType } from '@visly/state'
-import { Patch } from 'immer';
-import { gameState } from './src/state';
+import { Patch } from 'immer'
+import { gameState } from './src/state'
 
-const app = enableWs(express()).app;
+const app = enableWs(express()).app
 
 setSyncAdapter((applyPatches, setState) => {
-  const conections = new Set<WebSocket>();
-  
-  app.ws("/", (ws) => {
-    conections.add(ws);
+    const connections = new Set<WebSocket>()
 
-    ws.send(
-      JSON.stringify({
-          type: SyncPayloadType.FullSync,
-          data: gameState.get(),
-          key: gameState.syncKey,
-      })
-    )
+    app.ws('/', (ws) => {
+        connections.add(ws)
 
-    ws.on("message", (msg) => {
-      for (const connection of conections) {
-        if (connection !== ws && connection.readyState === WebSocket.OPEN) {
-          connection.send(msg);
-        }
-      }
+        ws.send(
+            JSON.stringify({
+                type: SyncPayloadType.FullSync,
+                data: gameState.get(),
+                key: gameState.syncKey,
+            }),
+        )
 
-      const { type, key, data } = JSON.parse(msg as string) as SyncPayload<any>;
+        ws.on('message', (msg) => {
+            for (const connection of connections) {
+                if (connection !== ws && connection.readyState === WebSocket.OPEN) {
+                    connection.send(msg)
+                }
+            }
 
-      switch (type) {
-        case SyncPayloadType.Patches:
-          applyPatches(key, data);
-          break;
-        case SyncPayloadType.FullSync:
-          setState(key, data);
-          break;
-      }
-    });
+            const { type, key, data } = JSON.parse(msg as string) as SyncPayload<any>
 
-    ws.on("close", () => {
-      conections.delete(ws);
-    });
-  });
+            switch (type) {
+                case SyncPayloadType.Patches:
+                    applyPatches(key, data)
+                    break
+                case SyncPayloadType.FullSync:
+                    setState(key, data)
+                    break
+            }
+        })
 
-  return (key: string, patches: Patch[]) => {
-    conections.forEach((conn) => {
-      if (conn.readyState === WebSocket.OPEN) {
-        conn.send(
-          JSON.stringify({ type: SyncPayloadType.Patches, data: patches, key })
-        );
-      }
-    });
-  };
-});
+        ws.on('close', () => {
+            connections.delete(ws)
+        })
+    })
 
-app.use(express.static(path.join(__dirname, 'build')));
+    return (key: string, patches: Patch[]) => {
+        connections.forEach((conn) => {
+            if (conn.readyState === WebSocket.OPEN) {
+                conn.send(
+                    JSON.stringify({ type: SyncPayloadType.Patches, data: patches, key }),
+                )
+            }
+        })
+    }
+})
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, 'build')))
 
-app.listen(process.env.PORT || 8080);
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
+app.listen(process.env.PORT || 8080)
