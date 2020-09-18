@@ -16,7 +16,7 @@ module.exports = {
         },
         metadatas: [
             { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'og:image', content: 'img/share-banner.png' },
+            { name: 'og:image', content: '/img/share-banner.png' },
         ],
         navbar: {
             title: 'Visly State',
