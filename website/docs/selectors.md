@@ -22,7 +22,7 @@ function Component() {
 }
 ```
 
-While we reccomend defining selectors as reusable and testable functions like above, you may also use arrow functions for one-off selectors.
+While we recommend defining selectors as reusable and testable functions like above, you may also use arrow functions for one-off selectors.
 
 ```tsx
 import { state, useValue } from '@visly/state
