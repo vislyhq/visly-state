@@ -173,18 +173,18 @@ export function memoSelector<Args extends ReadonlyArray<any>, Return>(
     func: (...args: Args) => Return,
     maxSaved = 10
 ): (...args: Args) => Return {
-    let results: Array<Return> = []
-
+    let calls: Array<[Args, Return]> = []  
+      
     return (...args: Args) => {
-        const result = func(...args)
-        const oldResult = results.find(r => deepEqual(r, result))
-        if (oldResult) {
-            return oldResult
+        const oldCall = calls.find(([a, r]) => deepEqual(a, args))
+        if (oldCall) {
+            return oldCall[1]
         } else {
-            // Remember the new result and make sure to trim results array
+            const result = func(...args)
+            // Remember the new call and make sure to trim call array
             // so we don't save too many results
-            results.splice(0, 0, result)
-            results = results.slice(0, maxSaved)
+            calls.splice(0, 0, [args, result])
+            calls = calls.slice(0, maxSaved)
             return result
         }
     }
