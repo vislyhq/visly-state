@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { state, derivedState, combinedState } from './core'
-import { useValue, useMutation } from './hooks'
+import { useValue, useMutation, memoSelector } from './hooks'
 import { render, act } from '@testing-library/react'
 
 test('useValue(state)', () => {
@@ -32,6 +32,20 @@ test('useValue(state, selector)', () => {
 
     const { container } = render(<Component />)
     expect(container.innerHTML).toEqual('<div>100</div>')
+})
+
+test('useValue with same memoized selector should return same object', () => {
+    const s = state({ x: 1 })
+    const selector = memoSelector((s: { x: number }) => ({ number: s.x * 100 }))
+
+    function Component() {
+        const val1 = useValue(s, selector)
+        const val2 = useValue(s, selector)
+        return <div>{`${val1 === val2}`}</div>
+    }
+
+    const { container } = render(<Component />)
+    expect(container.innerHTML).toEqual('<div>true</div>')
 })
 
 test('useValue should not re-render', () => {
