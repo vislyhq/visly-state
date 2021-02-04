@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { state, derivedState, combinedState } from './core'
 import { useValue, useMutation } from './hooks'
-import { render, act } from '@testing-library/react'
+import { render, act, waitFor } from '@testing-library/react'
 
 test('useValue(state)', () => {
     const s = state({ x: 1 })
@@ -54,6 +54,42 @@ test('useValue should not re-render', () => {
     })
 
     expect(numRenders).toEqual(1)
+})
+
+test('change in values from useValue should cause useEffect to retrigger even in StrictMode', async () => {
+    const s = state({ initialized: false  })
+
+    let timeoutRan = false
+    let useEffectRespondedToInitialized = false
+
+    function Component() {
+        useEffect(() => {
+            setTimeout(() => {
+                s.set(st => {
+                    st.initialized = true
+                })
+                timeoutRan = true
+            })
+        }, [])
+        const initialized = useValue(s, s => s.initialized)
+        useEffect(() => {
+            useEffectRespondedToInitialized = initialized
+        }, [initialized])
+
+        return <div>{initialized}</div>
+    }
+
+    render(
+        <React.StrictMode>
+            <Component />
+        </React.StrictMode>
+    )
+
+    await waitFor(() => {   
+        expect(timeoutRan).toEqual(true)
+    })
+
+    expect(useEffectRespondedToInitialized).toEqual(true)
 })
 
 test('useValue(derivedState, selector)', () => {
