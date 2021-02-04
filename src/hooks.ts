@@ -46,7 +46,6 @@ export function useValue<T extends StateObject, U>(
 
     if (!subscriberRef.current) {
         subscriberRef.current = new Subscriber(state, forceUpdate, selector)
-        subscriberRef.current.subscribe()
     }
 
     const subscriber = subscriberRef.current
@@ -66,7 +65,10 @@ export function useValue<T extends StateObject, U>(
         subscriber.errored = false
     })
 
-    useIsoLayoutEffect(() => subscriber.unsubscribe, [])
+    useIsoLayoutEffect(() => {
+        subscriber.subscribe()
+        return subscriber.unsubscribe
+    }, [subscriber])
 
     return hasNewValue ? newValue : subscriber.currentValue
 }
